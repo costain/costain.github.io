@@ -4,26 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Costain Nachuma — PhD Researcher & Software Engineer</title>
+  <meta name="description" content="Costain Nachuma — PhD Candidate in Computer Science at Idaho State University. Researcher in AI-assisted software engineering, empirical analysis, and software supply chain security. Open to industry and research roles from May 2027." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #1a2744;
-      --blue:   #2563eb;
+      --navy:       #1a2744;
+      --blue:       #2563eb;
       --blue-light: #dbeafe;
-      --teal:   #0891b2;
-      --gray-50:  #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-500: #64748b;
-      --gray-700: #334155;
-      --gray-900: #0f172a;
-      --white:  #ffffff;
-      --radius: 12px;
-      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      --teal:       #0891b2;
+      --green:      #16a34a;
+      --green-light:#dcfce7;
+      --gray-50:    #f8fafc;
+      --gray-100:   #f1f5f9;
+      --gray-200:   #e2e8f0;
+      --gray-500:   #64748b;
+      --gray-700:   #334155;
+      --gray-900:   #0f172a;
+      --white:      #ffffff;
+      --radius:     12px;
+      --shadow:     0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg:  0 4px 6px rgba(0,0,0,.07), 0 10px 40px rgba(0,0,0,.1);
     }
 
     html { scroll-behavior: smooth; }
@@ -39,37 +45,43 @@
     /* ── Nav ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--gray-200);
       padding: 0 2rem;
     }
     nav ul {
-      display: flex; gap: .25rem; list-style: none;
-      max-width: 960px; margin: 0 auto;
+      display: flex; gap: .1rem; list-style: none; align-items: center;
+      max-width: 1000px; margin: 0 auto;
       overflow-x: auto; white-space: nowrap;
     }
     nav a {
       display: inline-block;
-      padding: .75rem .9rem;
-      font-size: .8rem; font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
+      padding: .75rem .85rem;
+      font-size: .78rem; font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
       color: var(--gray-500);
       text-decoration: none;
       transition: color .15s;
     }
     nav a:hover { color: var(--blue); }
+    .nav-cta {
+      margin-left: auto;
+      background: var(--blue); color: var(--white) !important;
+      border-radius: 8px; padding: .4rem .9rem !important;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: #1d4ed8; }
 
     /* ── Layout ── */
-    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
     section { padding: 4rem 0; }
     section + section { border-top: 1px solid var(--gray-200); }
 
     h2.section-title {
       font-family: 'Merriweather', serif;
-      font-size: 1.5rem; font-weight: 700;
+      font-size: 1.45rem; font-weight: 700;
       color: var(--navy);
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
       display: flex; align-items: center; gap: .6rem;
     }
     h2.section-title::after {
@@ -80,70 +92,124 @@
 
     /* ── Hero ── */
     #hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #243b6e 60%, #1e3a5f 100%);
+      background: linear-gradient(140deg, #0f1f45 0%, #1a2f60 45%, #16335c 100%);
       color: var(--white);
-      padding: 5rem 0 4rem;
+      padding: 4.5rem 0 3.5rem;
     }
-    #hero .container { display: flex; flex-direction: column; gap: 1.5rem; }
+    #hero .container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+    }
+    .hero-left { display: flex; flex-direction: column; gap: 1.2rem; }
 
+    .hero-badges { display: flex; flex-wrap: wrap; gap: .5rem; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: .4rem;
+      border-radius: 999px;
+      padding: .28rem .85rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+    }
+    .badge-status {
+      background: var(--green-light); color: var(--green);
+    }
+    .badge-role {
       background: rgba(255,255,255,.12);
       border: 1px solid rgba(255,255,255,.2);
-      border-radius: 999px;
-      padding: .3rem .9rem;
-      font-size: .75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
       color: #93c5fd;
-      width: fit-content;
     }
 
     #hero h1 {
       font-family: 'Merriweather', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.2;
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      font-weight: 700; line-height: 1.15;
     }
-
     .hero-tagline {
-      font-size: 1.1rem; color: #bfdbfe; max-width: 620px;
+      font-size: 1.05rem; color: #bfdbfe; max-width: 580px; line-height: 1.65;
     }
-
-    .hero-links {
-      display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .5rem;
-    }
-    .hero-link {
-      display: inline-flex; align-items: center; gap: .4rem;
-      padding: .45rem 1rem;
-      border-radius: 999px;
-      font-size: .82rem; font-weight: 500;
-      text-decoration: none;
-      transition: background .15s, color .15s;
-    }
-    .hero-link.primary {
-      background: var(--blue); color: var(--white);
-    }
-    .hero-link.primary:hover { background: #1d4ed8; }
-    .hero-link.ghost {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.25);
-      color: var(--white);
-    }
-    .hero-link.ghost:hover { background: rgba(255,255,255,.2); }
 
     .hero-meta {
-      display: flex; flex-wrap: wrap; gap: 1.2rem;
-      font-size: .82rem; color: #93c5fd; margin-top: .25rem;
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      font-size: .8rem; color: #93c5fd;
     }
-    .hero-meta span { display: flex; align-items: center; gap: .35rem; }
+    .hero-meta a, .hero-meta span {
+      display: flex; align-items: center; gap: .35rem;
+      color: #93c5fd; text-decoration: none;
+    }
+    .hero-meta a:hover { color: var(--white); }
 
-    /* ── About ── */
-    .about-card {
-      background: var(--white);
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .25rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .55rem 1.2rem;
+      border-radius: 8px;
+      font-size: .85rem; font-weight: 600;
+      text-decoration: none;
+      transition: all .15s;
+    }
+    .btn-primary { background: var(--blue); color: var(--white); }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,.35);
+      color: var(--white);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); transform: translateY(-1px); }
+    .btn-white { background: var(--white); color: var(--navy); }
+    .btn-white:hover { background: #f0f4ff; transform: translateY(-1px); }
+
+    /* Stats sidebar */
+    .hero-stats {
+      display: flex; flex-direction: column; gap: .75rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2rem;
+      padding: 1.5rem 1.75rem;
+      min-width: 180px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Merriweather', serif;
+      font-size: 1.8rem; font-weight: 700; color: var(--white);
+      line-height: 1;
+    }
+    .stat-label { font-size: .72rem; color: #93c5fd; margin-top: .2rem; letter-spacing: .03em; }
+    .stat-divider { border: none; border-top: 1px solid rgba(255,255,255,.1); }
+
+    /* ── Expertise pillars ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .pillar {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      text-align: center;
+    }
+    .pillar-icon { font-size: 1.5rem; margin-bottom: .4rem; }
+    .pillar-title { font-weight: 700; color: var(--navy); font-size: .88rem; margin-bottom: .25rem; }
+    .pillar-desc { font-size: .78rem; color: var(--gray-500); line-height: 1.5; }
+
+    .about-text {
       font-size: .95rem; color: var(--gray-700); line-height: 1.8;
     }
+    .about-affiliations {
+      display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.25rem;
+    }
+    .aff-chip {
+      display: inline-flex; align-items: center; gap: .4rem;
+      border-radius: 8px; padding: .3rem .75rem;
+      font-size: .8rem; font-weight: 600; text-decoration: none;
+      transition: opacity .15s;
+    }
+    .aff-chip:hover { opacity: .8; }
+    .aff-blue { background: var(--blue-light); color: var(--blue); }
+    .aff-gray { background: var(--gray-100); color: var(--gray-700); }
 
     /* ── Publications ── */
     .pub-list { display: flex; flex-direction: column; gap: 1rem; }
@@ -155,43 +221,45 @@
       border-left: 4px solid var(--blue);
       transition: transform .15s, box-shadow .15s;
     }
-    .pub-card:hover { transform: translateY(-2px); box-shadow: 0 4px 24px rgba(0,0,0,.1); }
+    .pub-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
     .pub-venue {
-      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      font-size: .7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
       color: var(--blue); margin-bottom: .4rem;
     }
     .pub-title {
       font-family: 'Merriweather', serif;
-      font-size: .95rem; font-weight: 700; color: var(--navy);
-      line-height: 1.4; margin-bottom: .35rem;
+      font-size: .93rem; font-weight: 700; color: var(--navy);
+      line-height: 1.45; margin-bottom: .35rem;
     }
     .pub-authors { font-size: .82rem; color: var(--gray-500); }
     .pub-authors strong { color: var(--gray-700); }
 
-    /* ── Experience / Education ── */
-    .timeline { display: flex; flex-direction: column; gap: 1.25rem; }
+    /* ── Timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 1.1rem; }
     .timeline-item {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 1.4rem 1.6rem;
       display: grid; grid-template-columns: 1fr auto;
-      gap: .25rem 1rem;
+      gap: .2rem 1rem;
     }
-    .tl-role { font-weight: 600; color: var(--navy); font-size: .95rem; }
-    .tl-org  { font-size: .85rem; color: var(--teal); font-weight: 500; }
-    .tl-date { font-size: .78rem; color: var(--gray-500); text-align: right; white-space: nowrap; padding-top: .2rem; }
-    .tl-bullets {
-      grid-column: 1 / -1;
-      margin-top: .6rem;
-      padding-left: 1.1rem;
+    .tl-role { font-weight: 700; color: var(--navy); font-size: .95rem; }
+    .tl-org  { font-size: .84rem; color: var(--teal); font-weight: 500; margin-top: .1rem; }
+    .tl-date {
+      font-size: .75rem; color: var(--white);
+      background: var(--navy);
+      border-radius: 6px; padding: .2rem .6rem;
+      white-space: nowrap; height: fit-content;
+      font-weight: 500;
     }
-    .tl-bullets li { font-size: .85rem; color: var(--gray-700); margin-bottom: .3rem; line-height: 1.6; }
+    .tl-bullets { grid-column: 1 / -1; margin-top: .7rem; padding-left: 1.1rem; }
+    .tl-bullets li { font-size: .84rem; color: var(--gray-700); margin-bottom: .3rem; line-height: 1.65; }
 
     /* ── Skills ── */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1rem;
     }
     .skill-card {
@@ -201,38 +269,38 @@
       padding: 1.2rem 1.4rem;
     }
     .skill-cat {
-      font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: .5rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: .6rem;
     }
     .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
     .tag {
       background: var(--gray-100);
       color: var(--gray-700);
       border-radius: 6px;
-      padding: .2rem .55rem;
+      padding: .22rem .6rem;
       font-size: .78rem; font-weight: 500;
     }
 
     /* ── Awards ── */
     .awards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 1rem;
     }
     .award-card {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 1.2rem 1.4rem;
+      padding: 1.3rem 1.4rem;
       border-top: 3px solid var(--blue);
       text-align: center;
     }
     .award-icon { font-size: 1.6rem; margin-bottom: .5rem; }
-    .award-title { font-weight: 600; color: var(--navy); font-size: .88rem; margin-bottom: .3rem; }
+    .award-title { font-weight: 700; color: var(--navy); font-size: .88rem; margin-bottom: .3rem; }
     .award-event { font-size: .78rem; color: var(--gray-500); }
 
     /* ── Leadership ── */
-    .lead-list { display: flex; flex-direction: column; gap: .9rem; }
+    .lead-list { display: flex; flex-direction: column; gap: .85rem; }
     .lead-item {
       background: var(--white);
       border-radius: var(--radius);
@@ -241,28 +309,48 @@
       display: flex; gap: 1rem; align-items: flex-start;
     }
     .lead-dot {
-      width: 10px; height: 10px; min-width: 10px;
-      background: var(--blue); border-radius: 50%; margin-top: .4rem;
+      width: 9px; height: 9px; min-width: 9px;
+      background: var(--blue); border-radius: 50%; margin-top: .45rem;
     }
     .lead-role { font-weight: 600; color: var(--navy); font-size: .88rem; }
     .lead-desc { font-size: .83rem; color: var(--gray-700); margin-top: .15rem; }
 
+    /* ── CTA Section ── */
+    #contact {
+      background: linear-gradient(140deg, #0f1f45 0%, #1a2f60 100%);
+      padding: 4rem 0;
+    }
+    #contact .container { text-align: center; }
+    #contact h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.8rem; color: var(--white); margin-bottom: .75rem;
+    }
+    #contact p {
+      color: #bfdbfe; max-width: 520px; margin: 0 auto 2rem;
+      font-size: .95rem; line-height: 1.7;
+    }
+    .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+
     /* ── Footer ── */
     footer {
-      background: var(--navy);
+      background: var(--gray-900);
       color: #94a3b8;
       text-align: center;
-      padding: 2rem;
+      padding: 1.75rem;
       font-size: .82rem;
     }
     footer a { color: #93c5fd; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
     /* ── Responsive ── */
-    @media (max-width: 600px) {
+    @media (max-width: 720px) {
+      #hero .container { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: row; flex-wrap: wrap; justify-content: space-around; min-width: unset; }
+      .pillars { grid-template-columns: 1fr; }
       .timeline-item { grid-template-columns: 1fr; }
-      .tl-date { text-align: left; }
+      .tl-date { width: fit-content; }
       nav ul { gap: 0; }
+      .nav-cta { margin-left: 0; }
     }
   </style>
 </head>
@@ -272,60 +360,96 @@
   <nav>
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="news.html" style="color:var(--blue);font-weight:600;">News &amp; Gallery</a></li>
+      <li><a href="news.html">News</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#awards">Awards</a></li>
-      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Hero -->
   <section id="hero">
     <div class="container">
-      <div class="hero-badge">
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="5" fill="#4ade80"/></svg>
-        PhD Candidate · Idaho State University
-      </div>
-      <h1>Costain Nachuma</h1>
-      <p class="hero-tagline">
-        Researcher at the intersection of AI-assisted software engineering, empirical analysis, and interactive software visualization.
-      </p>
-      <div class="hero-meta">
-        <span>
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Pocatello, ID
-        </span>
-        <span>
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          costainnachuma@isu.edu
-        </span>
+      <div class="hero-left">
 
-        <a href="https://sites.google.com/isu.edu/secret/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.35rem;color:#93c5fd;text-decoration:none;font-size:.82rem;">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          SECReT Lab
-        </a>
-        <a href="https://www2.cose.isu.edu/~minhazzibran/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.35rem;color:#93c5fd;text-decoration:none;font-size:.82rem;">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          Advisor: Dr. Minhaz Zibran
-        </a>
-      </div>
-      <div class="hero-links">
-        <a class="hero-link primary" href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">
-          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a class="hero-link ghost" href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          Google Scholar
-        </a>
+        <div class="hero-badges">
+          <span class="hero-badge badge-status">
+            <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#16a34a"/></svg>
+            Open to Opportunities · Available May 2027
+          </span>
+          <span class="hero-badge badge-role">PhD Candidate · Idaho State University</span>
+        </div>
 
-        <a class="hero-link ghost" href="mailto:costainnachuma@isu.edu">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email Me
-        </a>
+        <h1>Costain Nachuma</h1>
+
+        <p class="hero-tagline">
+          I research how AI reshapes software engineering — from agentic code review to supply chain security — and build tools that make code easier to understand.
+        </p>
+
+        <div class="hero-meta">
+          <span>
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Pocatello, ID
+          </span>
+          <a href="mailto:costainnachuma@isu.edu">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            costainnachuma@isu.edu
+          </a>
+          <a href="https://sites.google.com/isu.edu/secret/" target="_blank" rel="noopener">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            SECReT Lab
+          </a>
+          <a href="https://www2.cose.isu.edu/~minhazzibran/" target="_blank" rel="noopener">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Advisor: Dr. Minhaz Zibran
+          </a>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-white" href="ResumeGeneral.pdf" target="_blank">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn btn-outline" href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Google Scholar
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Stats sidebar -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Publications</div>
+        </div>
+        <hr class="stat-divider" />
+        <div class="stat-item">
+          <div class="stat-num">4.0</div>
+          <div class="stat-label">GPA</div>
+        </div>
+        <hr class="stat-divider" />
+        <div class="stat-item">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Industry</div>
+        </div>
+        <hr class="stat-divider" />
+        <div class="stat-item">
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Users Supported</div>
+        </div>
+        <hr class="stat-divider" />
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Awards Won</div>
+        </div>
       </div>
     </div>
   </section>
@@ -334,16 +458,36 @@
   <section id="about">
     <div class="container">
       <h2 class="section-title">About</h2>
-      <div class="about-card">
-        <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.2rem;">
-          <a href="https://sites.google.com/isu.edu/secret/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--blue-light);color:var(--blue);border-radius:8px;padding:.3rem .75rem;font-size:.8rem;font-weight:600;text-decoration:none;">
-            🏛️ SECReT Lab — Software Engineering &amp; Cybersecurity Research Team
-          </a>
-          <a href="https://www2.cose.isu.edu/~minhazzibran/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--gray-100);color:var(--gray-700);border-radius:8px;padding:.3rem .75rem;font-size:.8rem;font-weight:600;text-decoration:none;">
-            🤝 Advisor: Dr. Minhaz Zibran
-          </a>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">🤖</div>
+          <div class="pillar-title">AI & Software Engineering</div>
+          <div class="pillar-desc">Studying how AI agents collaborate in code review and development workflows</div>
         </div>
-        PhD candidate in Computer Science at Idaho State University (GPA: 4.0), researching AI-assisted software engineering, interactive software visualization, and large-scale empirical analysis of open-source ecosystems. Published at top venues including MSR 2025, MSR 2026, MSR 2024, and ACM SAC 2024. Experienced building reproducible data pipelines, applying statistical modeling, and shipping production systems supporting 300+ users. Seeking roles at the intersection of research, data science, and software engineering.
+        <div class="pillar">
+          <div class="pillar-icon">📊</div>
+          <div class="pillar-title">Empirical Research</div>
+          <div class="pillar-desc">Large-scale mining of GitHub and Maven ecosystems using Python data pipelines</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🔒</div>
+          <div class="pillar-title">Supply Chain Security</div>
+          <div class="pillar-desc">Quantifying dependency risks and evaluating SBOM tools across open-source ecosystems</div>
+        </div>
+      </div>
+
+      <p class="about-text">
+        PhD candidate in Computer Science at Idaho State University (GPA: 4.0), researching AI-assisted software engineering, interactive software visualization, and large-scale empirical analysis of open-source ecosystems. Published at top venues including MSR 2026, MSR 2025, and ACM SAC 2024. Before academia, I spent 10+ years as a Software Engineering Lead at the National Assembly of Zambia, delivering systems used by 300+ government users. I bring both rigorous research depth and real production experience — and I'm open to research scientist, data scientist, and software engineering roles from May 2027.
+      </p>
+
+      <div class="about-affiliations">
+        <a href="https://sites.google.com/isu.edu/secret/" target="_blank" rel="noopener" class="aff-chip aff-blue">
+          🏛️ SECReT Lab — Software Engineering &amp; Cybersecurity Research Team
+        </a>
+        <a href="https://www2.cose.isu.edu/~minhazzibran/" target="_blank" rel="noopener" class="aff-chip aff-gray">
+          🤝 Advisor: Dr. Minhaz Zibran
+        </a>
       </div>
     </div>
   </section>
@@ -480,21 +624,16 @@
         <div class="skill-card">
           <div class="skill-cat">Languages</div>
           <div class="skill-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Java</span>
-            <span class="tag">C#</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">SQL</span>
+            <span class="tag">Python</span><span class="tag">Java</span>
+            <span class="tag">C#</span><span class="tag">JavaScript</span><span class="tag">SQL</span>
           </div>
         </div>
 
         <div class="skill-card">
           <div class="skill-cat">Data &amp; ML</div>
           <div class="skill-tags">
-            <span class="tag">Pandas</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Linear Regression</span>
-            <span class="tag">Logistic Regression</span>
+            <span class="tag">Pandas</span><span class="tag">NumPy</span>
+            <span class="tag">Linear Regression</span><span class="tag">Logistic Regression</span>
             <span class="tag">Feature Engineering</span>
           </div>
         </div>
@@ -502,39 +641,32 @@
         <div class="skill-card">
           <div class="skill-cat">Databases</div>
           <div class="skill-tags">
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">Oracle</span>
-            <span class="tag">Neo4j</span>
+            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
+            <span class="tag">Oracle</span><span class="tag">Neo4j</span>
           </div>
         </div>
 
         <div class="skill-card">
           <div class="skill-cat">DevOps &amp; Systems</div>
           <div class="skill-tags">
-            <span class="tag">Linux</span>
-            <span class="tag">Git</span>
-            <span class="tag">Docker</span>
-            <span class="tag">GitHub Actions</span>
+            <span class="tag">Linux</span><span class="tag">Git</span>
+            <span class="tag">Docker</span><span class="tag">GitHub Actions</span>
           </div>
         </div>
 
         <div class="skill-card">
           <div class="skill-cat">Research Methods</div>
           <div class="skill-tags">
-            <span class="tag">Empirical SE</span>
-            <span class="tag">Systematic Mapping</span>
-            <span class="tag">HCI Methods</span>
+            <span class="tag">Empirical SE</span><span class="tag">Systematic Mapping</span>
+            <span class="tag">HCI Methods</span><span class="tag">Statistical Modeling</span>
           </div>
         </div>
 
         <div class="skill-card">
           <div class="skill-cat">Cybersecurity</div>
           <div class="skill-tags">
-            <span class="tag">Supply Chain Risk</span>
-            <span class="tag">Threat Intelligence</span>
-            <span class="tag">SBOM Evaluation</span>
-            <span class="tag">Cyber Resilience</span>
+            <span class="tag">Supply Chain Risk</span><span class="tag">Threat Intelligence</span>
+            <span class="tag">SBOM Evaluation</span><span class="tag">Cyber Resilience</span>
           </div>
         </div>
 
@@ -553,19 +685,16 @@
           <div class="award-title">Best Oral Presentation</div>
           <div class="award-event">ISU Research &amp; Creative Works Symposium, 2026</div>
         </div>
-
         <div class="award-card">
           <div class="award-icon">🥇</div>
           <div class="award-title">Best Poster Award</div>
           <div class="award-event">ISU Research &amp; Creative Works Symposium, 2026</div>
         </div>
-
         <div class="award-card">
           <div class="award-icon">🥇</div>
           <div class="award-title">Best Poster Award</div>
           <div class="award-event">4th Annual Intermountain ITC Conference, 2024</div>
         </div>
-
         <div class="award-card">
           <div class="award-icon">🏆</div>
           <div class="award-title">Best Oral Presentation</div>
@@ -589,7 +718,6 @@
             <div class="lead-desc">Led 50+ volunteers supporting 2,000+ attendees; coordinated exhibitor and executive stakeholder engagement.</div>
           </div>
         </div>
-
         <div class="lead-item">
           <div class="lead-dot"></div>
           <div>
@@ -597,7 +725,6 @@
             <div class="lead-desc">Provide mentorship in programming fundamentals, career development, and technical interview preparation.</div>
           </div>
         </div>
-
         <div class="lead-item">
           <div class="lead-dot"></div>
           <div>
@@ -608,13 +735,35 @@
 
       </div>
 
-      <!-- Certifications inline -->
-      <div style="margin-top:2rem;">
-        <h3 style="font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:.75rem;">Certifications</h3>
+      <div style="margin-top:1.5rem;">
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem;">Certifications</div>
         <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem 1.4rem;font-size:.88rem;color:var(--gray-700);display:flex;align-items:center;gap:.6rem;">
-          <span style="font-size:1.2rem;">🎓</span>
-          IBM / Coursera: Python for Data Science, AI &amp; Development (2026)
+          🎓 IBM / Coursera: Python for Data Science, AI &amp; Development (2026)
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2>Let's Connect</h2>
+      <p>
+        I'm open to research scientist, data science, and software engineering roles from <strong style="color:var(--white);">May 2027</strong>. Whether you're a recruiter, collaborator, or fellow researcher — I'd love to hear from you.
+      </p>
+      <div class="cta-actions">
+        <a class="btn btn-white" href="mailto:costainnachuma@isu.edu">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          costainnachuma@isu.edu
+        </a>
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Connect on LinkedIn
+        </a>
+        <a class="btn btn-outline" href="ResumeGeneral.pdf" target="_blank">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
       </div>
     </div>
   </section>
@@ -625,9 +774,10 @@
       Costain Nachuma &nbsp;·&nbsp;
       <a href="mailto:costainnachuma@isu.edu">costainnachuma@isu.edu</a> &nbsp;·&nbsp;
       <a href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
-      <a href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &nbsp;·&nbsp;
+      <a href="news.html">News &amp; Gallery</a>
     </p>
-    <p style="margin-top:.5rem;font-size:.75rem;color:#64748b;">Pocatello, ID</p>
+    <p style="margin-top:.4rem;font-size:.73rem;color:#475569;">Pocatello, ID</p>
   </footer>
 
 </body>
