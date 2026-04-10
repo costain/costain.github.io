@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News & Gallery — Costain Nachuma</title>
+  <title>News — Costain Nachuma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -14,7 +14,6 @@
       --navy:       #1a2744;
       --blue:       #2563eb;
       --blue-light: #dbeafe;
-      --teal:       #0891b2;
       --gray-50:    #f8fafc;
       --gray-100:   #f1f5f9;
       --gray-200:   #e2e8f0;
@@ -38,49 +37,28 @@
     /* ── Nav ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--gray-200);
       padding: 0 2rem;
     }
     nav ul {
-      display: flex; gap: .25rem; list-style: none;
-      max-width: 960px; margin: 0 auto;
-      overflow-x: auto; white-space: nowrap; align-items: center;
+      display: flex; gap: .25rem; list-style: none; align-items: center;
+      max-width: 760px; margin: 0 auto;
+      overflow-x: auto; white-space: nowrap;
     }
     nav a {
-      display: inline-block;
+      display: inline-flex; align-items: center; gap: .35rem;
       padding: .75rem .9rem;
       font-size: .8rem; font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
-      color: var(--gray-500);
-      text-decoration: none;
+      color: var(--gray-500); text-decoration: none;
       transition: color .15s;
     }
-    nav a:hover, nav a.active { color: var(--blue); }
-    nav .back-link {
-      margin-right: auto;
-      display: inline-flex; align-items: center; gap: .35rem;
-      color: var(--navy); font-weight: 600;
-    }
+    nav a:hover { color: var(--blue); }
+    .back-link { color: var(--navy) !important; font-weight: 600 !important; margin-right: auto; }
 
     /* ── Layout ── */
-    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-    section { padding: 3.5rem 0; }
-    section + section { border-top: 1px solid var(--gray-200); }
-
-    h2.section-title {
-      font-family: 'Merriweather', serif;
-      font-size: 1.4rem; font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.75rem;
-      display: flex; align-items: center; gap: .6rem;
-    }
-    h2.section-title::after {
-      content: ''; flex: 1; height: 2px;
-      background: linear-gradient(to right, var(--blue-light), transparent);
-      border-radius: 2px;
-    }
-    .section-icon { font-size: 1.2rem; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
 
     /* ── Page header ── */
     #page-header {
@@ -90,13 +68,15 @@
     }
     #page-header h1 {
       font-family: 'Merriweather', serif;
-      font-size: 1.3rem;
-      font-weight: 700; margin-bottom: .2rem;
+      font-size: 1.3rem; font-weight: 700; margin-bottom: .2rem;
     }
     #page-header p { color: #bfdbfe; font-size: .82rem; }
 
     /* ── News feed ── */
-    .news-feed { display: flex; flex-direction: column; gap: 1rem; }
+    .news-feed {
+      display: flex; flex-direction: column; gap: 1rem;
+      padding: 3rem 0;
+    }
     .news-item {
       background: var(--white);
       border-radius: var(--radius);
@@ -106,7 +86,10 @@
       grid-template-columns: auto 1fr;
       gap: .5rem 1.25rem;
       align-items: start;
+      transition: transform .15s, box-shadow .15s;
     }
+    .news-item:hover { transform: translateY(-2px); box-shadow: 0 4px 24px rgba(0,0,0,.1); }
+
     .news-date {
       font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
       color: var(--blue);
@@ -125,49 +108,10 @@
     .tag-research  { background: #dcfce7; color: #166534; }
     .tag-award     { background: #fef9c3; color: #854d0e; }
     .tag-conference{ background: #ede9fe; color: #5b21b6; }
-    .tag-lab       { background: #ffedd5; color: #9a3412; }
+    .tag-teaching  { background: #ffedd5; color: #9a3412; }
 
     .news-title { font-weight: 600; color: var(--navy); font-size: .92rem; margin-bottom: .2rem; }
     .news-body  { font-size: .85rem; color: var(--gray-700); line-height: 1.6; }
-
-    /* ── Photo grid ── */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-    .photo-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .photo-card:hover { transform: translateY(-3px); box-shadow: 0 6px 28px rgba(0,0,0,.12); }
-
-    .photo-placeholder {
-      width: 100%; aspect-ratio: 4/3;
-      background: var(--gray-100);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: .4rem; color: var(--gray-500);
-      font-size: .78rem; text-align: center; padding: 1rem;
-      border-bottom: 1px solid var(--gray-200);
-    }
-    .photo-placeholder .ph-icon { font-size: 2rem; opacity: .5; }
-
-    /* When you have a real image, replace .photo-placeholder with: */
-    /* <img src="path/to/photo.jpg" alt="description" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;"> */
-
-    .photo-caption {
-      padding: .85rem 1rem;
-    }
-    .photo-caption .cap-tag {
-      font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: .3rem;
-    }
-    .photo-caption .cap-title { font-weight: 600; color: var(--navy); font-size: .88rem; margin-bottom: .2rem; }
-    .photo-caption .cap-date  { font-size: .78rem; color: var(--gray-500); }
 
     /* ── Footer ── */
     footer {
@@ -194,250 +138,98 @@
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
         Costain Nachuma
       </a></li>
-      <li><a href="#news" class="active">News</a></li>
-      <li><a href="#conferences">Conferences</a></li>
-      <li><a href="#awards-gallery">Awards</a></li>
-      <li><a href="#lab-life">Lab Life</a></li>
+      <li><a href="#news">News</a></li>
     </ul>
   </nav>
 
   <!-- Page Header -->
   <header id="page-header">
     <div class="container">
-      <h1>News &amp; Gallery</h1>
-      <p>Updates, conference highlights, awards, and life in the lab.</p>
+      <h1>News</h1>
+      <p>Research updates, awards, and recent activity.</p>
     </div>
   </header>
 
-  <!-- Latest News -->
-  <section id="news">
-    <div class="container">
-      <h2 class="section-title"><span class="section-icon">📰</span> Latest News</h2>
-      <div class="news-feed">
+  <!-- News feed -->
+  <div class="container">
+    <div class="news-feed" id="news">
 
-        <!-- Add new news items here — newest first -->
+      <!-- Add new items here — newest first -->
 
-        <div class="news-item">
-          <div class="news-date">Apr 2026</div>
-          <div>
-            <div class="news-tag tag-award">Award</div>
-            <div class="news-title">Best Oral Presentation — ISU Research &amp; Creative Works Symposium 2026</div>
-            <div class="news-body">Received the Best Oral Presentation Award at the Idaho State University Research and Creative Works Symposium.</div>
-          </div>
+      <div class="news-item">
+        <div class="news-date">Apr 2026</div>
+        <div>
+          <div class="news-tag tag-award">Award</div>
+          <div class="news-title">Best Oral Presentation — ISU Research &amp; Creative Works Symposium 2026</div>
+          <div class="news-body">Received the Best Oral Presentation Award at the Idaho State University Research and Creative Works Symposium.</div>
         </div>
-
-        <div class="news-item">
-          <div class="news-date">Apr 2026</div>
-          <div>
-            <div class="news-tag tag-award">Award</div>
-            <div class="news-title">Best Poster Award — ISU Research &amp; Creative Works Symposium 2026</div>
-            <div class="news-body">Also received the Best Poster Award at the same symposium, making it a double win.</div>
-          </div>
-        </div>
-
-        <div class="news-item">
-          <div class="news-date">2026</div>
-          <div>
-            <div class="news-tag tag-research">Research</div>
-            <div class="news-title">Paper accepted at MSR 2026</div>
-            <div class="news-body">"When AI Teammates Meet Code Review: Collaboration Signals Shaping the Integration of Agent-Authored Pull Requests" accepted at the 23rd International Conference on Mining Software Repositories.</div>
-          </div>
-        </div>
-
-        <div class="news-item">
-          <div class="news-date">Nov 2025</div>
-          <div>
-            <div class="news-tag tag-conference">Event</div>
-            <div class="news-title">Team Lead at TechEquity AI Summit, Sunnyvale CA</div>
-            <div class="news-body">Led a team of 50+ volunteers supporting 2,000+ attendees at the Plug and Play Tech Center.</div>
-          </div>
-        </div>
-
-        <div class="news-item">
-          <div class="news-date">2025</div>
-          <div>
-            <div class="news-tag tag-research">Research</div>
-            <div class="news-title">Paper accepted at MSR 2025</div>
-            <div class="news-body">"Decoding Dependency Risks: A Quantitative Study of Vulnerabilities in the Maven Ecosystem" accepted at the 22nd International Conference on Mining Software Repositories.</div>
-          </div>
-        </div>
-
-        <div class="news-item">
-          <div class="news-date">2024</div>
-          <div>
-            <div class="news-tag tag-award">Award</div>
-            <div class="news-title">Best Poster — 4th Annual Intermountain ITC Conference 2024</div>
-            <div class="news-body">Received the Best Poster Award at the 4th Annual Intermountain Engineering, Technology &amp; Computing Conference.</div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- Conference & Travel Photos -->
-  <section id="conferences">
-    <div class="container">
-      <h2 class="section-title"><span class="section-icon">✈️</span> Conferences &amp; Travel</h2>
-      <div class="photo-grid">
-
-        <!-- Replace .photo-placeholder with an <img> tag when you have photos -->
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add photo from MSR 2026
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Conference</div>
-            <div class="cap-title">MSR 2026 — 23rd Mining Software Repositories</div>
-            <div class="cap-date">2026</div>
-          </div>
+      <div class="news-item">
+        <div class="news-date">Apr 2026</div>
+        <div>
+          <div class="news-tag tag-award">Award</div>
+          <div class="news-title">Best Poster Award — ISU Research &amp; Creative Works Symposium 2026</div>
+          <div class="news-body">Also received the Best Poster Award at the same symposium — a double win.</div>
         </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add photo from TechEquity AI Summit
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Event</div>
-            <div class="cap-title">TechEquity AI Summit — Plug and Play Tech Center</div>
-            <div class="cap-date">Nov 2025 · Sunnyvale, CA</div>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add photo from MSR 2025
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Conference</div>
-            <div class="cap-title">MSR 2025 — 22nd Mining Software Repositories</div>
-            <div class="cap-date">2025</div>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add photo from MSR 2024 / ACM SAC 2024
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Conference</div>
-            <div class="cap-title">MSR 2024 &amp; ACM SAC 2024</div>
-            <div class="cap-date">2024</div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- Awards Gallery -->
-  <section id="awards-gallery">
-    <div class="container">
-      <h2 class="section-title"><span class="section-icon">🏆</span> Awards &amp; Recognition</h2>
-      <div class="photo-grid">
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add award ceremony photo
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Award</div>
-            <div class="cap-title">Best Oral Presentation — ISU Symposium</div>
-            <div class="cap-date">2026</div>
-          </div>
+      <div class="news-item">
+        <div class="news-date">2026</div>
+        <div>
+          <div class="news-tag tag-research">Research</div>
+          <div class="news-title">Paper accepted at MSR 2026</div>
+          <div class="news-body">"When AI Teammates Meet Code Review: Collaboration Signals Shaping the Integration of Agent-Authored Pull Requests" accepted at the 23rd International Conference on Mining Software Repositories.</div>
         </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add poster award photo
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Award</div>
-            <div class="cap-title">Best Poster Award — ISU Symposium</div>
-            <div class="cap-date">2026</div>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add Intermountain ITC photo
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Award</div>
-            <div class="cap-title">Best Poster — Intermountain ITC Conference</div>
-            <div class="cap-date">2024</div>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add 2024 symposium photo
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Award</div>
-            <div class="cap-title">Best Oral Presentation — ISU Symposium</div>
-            <div class="cap-date">2024</div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- Lab & Campus Life -->
-  <section id="lab-life">
-    <div class="container">
-      <h2 class="section-title"><span class="section-icon">🔬</span> Lab &amp; Campus Life</h2>
-      <div class="photo-grid">
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add SECReT lab group photo
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Lab</div>
-            <div class="cap-title">SECReT Lab Group</div>
-            <div class="cap-date">Idaho State University</div>
-          </div>
+      <div class="news-item">
+        <div class="news-date">Fall 2025</div>
+        <div>
+          <div class="news-tag tag-teaching">Teaching</div>
+          <div class="news-title">Instructor of Record — CS 3309: Advanced Object-Oriented Programming</div>
+          <div class="news-body">Served as sole instructor for a full undergraduate course at Idaho State University, covering advanced OOP principles, design patterns, and software engineering practices.</div>
         </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add mentoring / teaching photo
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Teaching</div>
-            <div class="cap-title">Mentoring &amp; Teaching</div>
-            <div class="cap-date">Idaho State University</div>
-          </div>
-        </div>
-
-        <div class="photo-card">
-          <div class="photo-placeholder">
-            <span class="ph-icon">📸</span>
-            Add campus / research life photo
-          </div>
-          <div class="photo-caption">
-            <div class="cap-tag">Campus</div>
-            <div class="cap-title">Research Life at ISU</div>
-            <div class="cap-date">Pocatello, ID</div>
-          </div>
-        </div>
-
       </div>
+
+      <div class="news-item">
+        <div class="news-date">Nov 2025</div>
+        <div>
+          <div class="news-tag tag-conference">Event</div>
+          <div class="news-title">Team Lead at TechEquity AI Summit — Sunnyvale, CA</div>
+          <div class="news-body">Led 50+ volunteers supporting 2,000+ attendees at the Plug and Play Tech Center.</div>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-date">2025</div>
+        <div>
+          <div class="news-tag tag-research">Research</div>
+          <div class="news-title">Paper accepted at MSR 2025</div>
+          <div class="news-body">"Decoding Dependency Risks: A Quantitative Study of Vulnerabilities in the Maven Ecosystem" accepted at the 22nd International Conference on Mining Software Repositories.</div>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-date">2024</div>
+        <div>
+          <div class="news-tag tag-award">Award</div>
+          <div class="news-title">Best Poster — 4th Annual Intermountain ITC Conference 2024</div>
+          <div class="news-body">Received the Best Poster Award at the 4th Annual Intermountain Engineering, Technology &amp; Computing Conference.</div>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-date">2024</div>
+        <div>
+          <div class="news-tag tag-research">Research</div>
+          <div class="news-title">Two papers accepted at MSR 2024 and ACM SAC 2024</div>
+          <div class="news-body">"ChatGPT in Software Development: Insights from Empirical Analysis" (MSR 2024) and "Evaluating SBOM Generation Tools: A Deep Dive into the npm Ecosystem" (ACM SAC 2024).</div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
 
   <footer>
     <p>
