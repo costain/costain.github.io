@@ -393,9 +393,9 @@
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Pocatello, ID
           </span>
-          <a href="mailto:costainnachuma@isu.edu">
+          <a class="eml" href="#" data-u="costainnachuma" data-d="isu.edu">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            costainnachuma@isu.edu
+            costainnachuma [at] isu.edu
           </a>
           <a href="https://sites.google.com/isu.edu/secret/" target="_blank" rel="noopener">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -773,9 +773,9 @@
         Whether you're a collaborator, fellow researcher, or just want to connect — feel free to reach out.
       </p>
       <div class="cta-actions">
-        <a class="btn btn-white" href="mailto:costainnachuma@isu.edu">
+        <a class="btn btn-white eml" href="#" data-u="costainnachuma" data-d="isu.edu">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          costainnachuma@isu.edu
+          costainnachuma [at] isu.edu
         </a>
         <a class="btn btn-primary" href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">
           <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -793,7 +793,7 @@
   <footer>
     <p>
       Costain Nachuma &nbsp;·&nbsp;
-      <a href="mailto:costainnachuma@isu.edu">costainnachuma@isu.edu</a> &nbsp;·&nbsp;
+      <a class="eml" href="#" data-u="costainnachuma" data-d="isu.edu">costainnachuma [at] isu.edu</a> &nbsp;·&nbsp;
       <a href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
       <a href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &nbsp;·&nbsp;
       <a href="news.html">News &amp; Gallery</a>
@@ -802,6 +802,7 @@
   </footer>
 
   <script>
+    document.querySelectorAll('a.eml').forEach(function(a){var e=a.dataset.u+'@'+a.dataset.d;a.href='mailto:'+e;a.childNodes.forEach(function(n){if(n.nodeType===3&&n.textContent.indexOf('[at]')!==-1)n.textContent=n.textContent.replace(/\[at\]/,'@')})});
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
 

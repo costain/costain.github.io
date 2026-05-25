@@ -264,9 +264,10 @@
     <p>
       <a href="index.html">← Back to main profile</a> &nbsp;·&nbsp;
       Costain Nachuma &nbsp;·&nbsp;
-      <a href="mailto:costainnachuma@isu.edu">costainnachuma@isu.edu</a>
+      <a class="eml" href="#" data-u="costainnachuma" data-d="isu.edu">costainnachuma [at] isu.edu</a>
     </p>
   </footer>
 
+  <script>document.querySelectorAll('a.eml').forEach(function(a){var e=a.dataset.u+'@'+a.dataset.d;a.href='mailto:'+e;a.childNodes.forEach(function(n){if(n.nodeType===3&&n.textContent.indexOf('[at]')!==-1)n.textContent=n.textContent.replace(/\[at\]/,'@')})})</script>
 </body>
 </html>
