@@ -3,10 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Costain Nachuma — PhD Researcher & Software Engineer</title>
-  <meta name="description" content="Costain Nachuma — PhD Candidate in Computer Science at Idaho State University. Researcher in AI-assisted software engineering, empirical analysis, and software supply chain security. Open to industry and research roles from May 2027." />
+  <title>Costain Nachuma — Software Engineer</title>
+  <meta name="description" content="Costain Nachuma — Software Engineer building production AI developer tooling and large-scale data systems. PhD Candidate in Computer Science at Idaho State University (4.0 GPA), 9+ years prior industry experience, 6 peer-reviewed publications." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="canonical" href="https://costain.github.io/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Costain Nachuma — Software Engineer" />
+  <meta property="og:description" content="Software Engineer building production AI developer tooling and large-scale data systems. PhD Candidate in Computer Science at Idaho State University (4.0 GPA), 9+ years prior industry experience, 6 peer-reviewed publications." />
+  <meta property="og:url" content="https://costain.github.io/" />
+  <meta property="og:image" content="https://costain.github.io/favicon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Costain Nachuma — Software Engineer" />
+  <meta name="twitter:description" content="Software Engineer building production AI developer tooling and large-scale data systems. PhD Candidate at Idaho State University." />
+  <meta name="twitter:image" content="https://costain.github.io/favicon.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Costain Nachuma",
+    "url": "https://costain.github.io/",
+    "jobTitle": "Software Engineer",
+    "address": { "@type": "PostalAddress", "addressLocality": "Pocatello", "addressRegion": "ID", "addressCountry": "US" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Idaho State University" },
+      { "@type": "CollegeOrUniversity", "name": "University of New Orleans" },
+      { "@type": "CollegeOrUniversity", "name": "University of Zambia" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/costaincodes/",
+      "https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en",
+      "https://github.com/costain"
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -238,6 +270,31 @@
     .pub-authors strong { color: var(--gray-700); }
     .pub-note { font-size: .75rem; color: var(--teal); font-weight: 600; margin-top: .3rem; }
 
+    /* ── Projects ── */
+    .project-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .project-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.7rem;
+      border-left: 4px solid var(--teal);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .project-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .project-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+    .project-title { font-family: 'Merriweather', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+    .project-sub { font-size: .8rem; color: var(--gray-500); margin-top: .25rem; }
+    .project-links { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .project-link {
+      font-size: .75rem; font-weight: 600; color: var(--blue); text-decoration: none;
+      display: inline-flex; align-items: center; gap: .3rem;
+      padding: .3rem .65rem; background: var(--blue-light); border-radius: 6px;
+      transition: background .15s;
+    }
+    .project-link:hover { background: #c7ddfd; }
+    .project-desc { font-size: .86rem; color: var(--gray-700); line-height: 1.7; margin: .9rem 0 .8rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+
     /* ── Timeline ── */
     .timeline { display: flex; flex-direction: column; gap: 1.1rem; }
     .timeline-item {
@@ -364,11 +421,11 @@
   <nav>
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#awards">Awards</a></li>
+      <li><a href="news.html">News</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -379,13 +436,14 @@
       <div class="hero-left">
 
         <div class="hero-badges">
+          <span class="hero-badge badge-role">Software Engineer</span>
           <span class="hero-badge badge-role">PhD Candidate · Idaho State University</span>
         </div>
 
         <h1>Costain Nachuma</h1>
 
         <p class="hero-tagline">
-          I research how AI reshapes software engineering — from agentic code review to supply chain security — and build tools that make code easier to understand.
+          I ship production developer tooling — IDE plugins, LLM-integrated pipelines, graph-grounded retrieval systems — and study how AI reshapes software engineering at scale. 9+ years of prior industry experience; currently researching AI-assisted code comprehension and supply chain security.
         </p>
 
         <div class="hero-meta">
@@ -408,9 +466,13 @@
         </div>
 
         <div class="hero-actions">
-          <a class="btn btn-white" href="CostainResumeApr26.pdf" target="_blank">
+          <a class="btn btn-white" href="CostainNachuma_SWE_Resume.pdf" target="_blank">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download CV
+            Download Resume
+          </a>
+          <a class="btn btn-outline" href="https://github.com/costain" target="_blank" rel="noopener">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .28.18.61.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+            GitHub
           </a>
           <a class="btn btn-primary" href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -427,7 +489,7 @@
       <!-- Stats sidebar -->
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-num">9</div>
+          <div class="stat-num">6</div>
           <div class="stat-label">Publications</div>
         </div>
         <hr class="stat-divider" />
@@ -437,7 +499,7 @@
         </div>
         <hr class="stat-divider" />
         <div class="stat-item">
-          <div class="stat-num">10+</div>
+          <div class="stat-num">9+</div>
           <div class="stat-label">Years Industry</div>
         </div>
         <hr class="stat-divider" />
@@ -461,14 +523,14 @@
 
       <div class="pillars">
         <div class="pillar">
-          <div class="pillar-icon">🤖</div>
-          <div class="pillar-title">AI & Software Engineering</div>
-          <div class="pillar-desc">Studying how AI agents collaborate in code review and development workflows</div>
+          <div class="pillar-icon">🛠️</div>
+          <div class="pillar-title">Production AI Tooling</div>
+          <div class="pillar-desc">Shipped a 5-layer Eclipse IDE plugin spanning three LLM backends, released publicly with a Zenodo artifact</div>
         </div>
         <div class="pillar">
           <div class="pillar-icon">📊</div>
-          <div class="pillar-title">Empirical Research</div>
-          <div class="pillar-desc">Large-scale mining of GitHub and Maven ecosystems using Python data pipelines</div>
+          <div class="pillar-title">Large-Scale Systems</div>
+          <div class="pillar-desc">Python/DuckDB and Neo4j pipelines processing 14M+ records — GitHub, Maven, and Chromium ecosystems</div>
         </div>
         <div class="pillar">
           <div class="pillar-icon">🔒</div>
@@ -478,7 +540,7 @@
       </div>
 
       <p class="about-text">
-        PhD candidate in Computer Science at Idaho State University (GPA: 4.0), researching AI-assisted software engineering, interactive software visualization, and large-scale empirical analysis of open-source ecosystems. Published at top venues including ICSME 2026, MSR 2026, MSR 2025, MSR 2024, ACM SAC 2024, ITNG 2025 (Springer), and i-ETC 2024/2026. Before academia, I spent 10+ years as a Software Engineering Lead at the National Assembly of Zambia, delivering systems used by 300+ government users. I bring both rigorous research depth and real production experience.
+        Software engineer and PhD candidate in Computer Science at Idaho State University (GPA: 4.0) who ships production tooling end-to-end: designed and released <strong>Comprendia</strong>, a 5-layer Eclipse IDE plugin integrating three LLM backends, and built Python/graph-database pipelines processing 14M+ records. Before academia, I spent 9+ years leading engineering and infrastructure for a 300+ user government network at the National Assembly of Zambia. My research on AI-assisted software engineering is published at top venues including ICSME 2026, MSR 2026, MSR 2025, MSR 2024, and ACM SAC 2024. I bring both rigorous research depth and real production experience.
       </p>
 
       <div class="about-affiliations">
@@ -492,12 +554,170 @@
     </div>
   </section>
 
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="project-list">
+
+        <div class="project-card">
+          <div class="project-head">
+            <div>
+              <div class="project-title">Comprendia — AI-Augmented Code Comprehension</div>
+              <div class="project-sub">Eclipse IDE plugin · Java · 5-layer architecture</div>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://doi.org/10.5281/zenodo.20436759" target="_blank" rel="noopener">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Zenodo Artifact
+              </a>
+              <a class="project-link" href="https://youtu.be/1wlh_RYehzA" target="_blank" rel="noopener">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Demo Video
+              </a>
+            </div>
+          </div>
+          <p class="project-desc">
+            Designed and shipped a 5-layer IDE plugin combining a Cytoscape.js dependency-graph UI, a JDT AST analysis engine, OSV.dev/JGit vulnerability integration, and an <code>AiGateway</code> spanning three production LLM backends (Claude, OpenAI, Ollama). Introduces <strong>Graph-Aware Callee Pruning (GACP)</strong>, an algorithm that grounds LLM prompts in a live dependency graph instead of embedding similarity — producing deterministic, auditable output reproducible across LLM families via an O(V+E) reachability filter. Benchmarked across 6 code fixtures × 4 prompt modes × 3 LLM families. Tool demo accepted at ICSME 2026.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Java</span><span class="tag">Eclipse JDT</span><span class="tag">Cytoscape.js</span>
+            <span class="tag">Neo4j</span><span class="tag">LLM Integration</span><span class="tag">OSV.dev</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-head">
+            <div>
+              <div class="project-title">Chromium Bug ETL Pipeline</div>
+              <div class="project-sub">Python · 5-script scraping &amp; parsing pipeline</div>
+            </div>
+          </div>
+          <p class="project-desc">
+            Built a 5-script scraping/HTML-parsing pipeline against the live Chromium issue tracker, working around its 1,000-record API cap to assemble a complete research dataset. Powered a study of 5,575 security and 4,605 performance bug reports, published in "On the Assessment of Security and Performance Bugs in Chromium Open-Source Project."
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">BeautifulSoup</span><span class="tag">REST APIs</span><span class="tag">Data Engineering</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div>
+            <div class="tl-role">Graduate Research &amp; Teaching Assistant</div>
+            <div class="tl-org">Idaho State University — Pocatello, ID</div>
+          </div>
+          <div class="tl-date">Aug 2023 – Present</div>
+          <ul class="tl-bullets">
+            <li>Designed and shipped <strong>Comprendia</strong>, an Eclipse IDE plugin with a 5-layer architecture (Cytoscape.js UI, JDT AST analysis engine, OSV.dev/JGit integration, and an <code>AiGateway</code> spanning three production LLM backends — Claude, OpenAI, Ollama); benchmarked across 6 code fixtures × 4 prompt modes × 3 LLM families and released publicly with a Zenodo artifact and demo video.</li>
+            <li>Built <strong>Graph-Aware Callee Pruning (GACP)</strong>, an algorithm that grounds LLM prompts in a live dependency graph instead of embedding similarity, producing deterministic, auditable output reproducible across LLM families (O(V+E) reachability filter).</li>
+            <li>Built a Python/DuckDB pipeline processing 33,596 GitHub pull requests across 2,807 repositories, and a separate Neo4j-backed pipeline querying 14.4M+ package releases for dependency-vulnerability analysis (21-hour batch job on a 64GB/24-core system); mentored 20+ students.</li>
+            <li>Conducted a Systematic Mapping Study (Kitchenham's guidelines) synthesizing literature on software visualization tools.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div>
+            <div class="tl-role">Instructor of Record — CS 3309: Advanced Object-Oriented Programming</div>
+            <div class="tl-org">Idaho State University — Pocatello, ID</div>
+          </div>
+          <div class="tl-date">Fall 2025</div>
+          <ul class="tl-bullets">
+            <li>Sole instructor for a 45-student undergraduate course; independently designed the curriculum, delivered all lectures, and graded consistently — rated 3.50/4.0 for overall teaching effectiveness (90% agree/strongly agree) in end-of-term evaluations.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div>
+            <div class="tl-role">Senior Support Specialist, Software Engineer</div>
+            <div class="tl-org">National Assembly of Zambia — Lusaka, Zambia</div>
+          </div>
+          <div class="tl-date">Aug 2020 – Aug 2023</div>
+          <ul class="tl-bullets">
+            <li>Led modernization of parliamentary web platforms and designed a testing protocol for high-stakes congressional sessions (VP, ministers, MPs), raising pre-meeting error discovery to ~95%.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div>
+            <div class="tl-role">Systems Librarian Intern</div>
+            <div class="tl-org">Prosentient Systems Pty — Sydney, Australia</div>
+          </div>
+          <div class="tl-date">May 2019 – Jul 2019</div>
+          <ul class="tl-bullets">
+            <li>Developed a Java-based real-time communication tool improving cross-institutional research collaboration.</li>
+            <li>Administered Linux servers and open-source platforms (DSpace, Openfire) using Git and SSH.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div>
+            <div class="tl-role">Software Developer, Technical Support Specialist</div>
+            <div class="tl-org">National Assembly of Zambia — Lusaka, Zambia</div>
+          </div>
+          <div class="tl-date">Jun 2012 – Aug 2018</div>
+          <ul class="tl-bullets">
+            <li>Provided technical support for 300+ staff and built an automated provisioning script for a country-wide network, cutting configuration time 90% (100% consistent) and issue resolution time 30%.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div>
+            <div class="tl-role">Ph.D. in Computer Science — Software Engineering &amp; Cybersecurity</div>
+            <div class="tl-org">Idaho State University — Pocatello, ID &nbsp;·&nbsp; GPA: 4.0</div>
+          </div>
+          <div class="tl-date">Aug 2023 – May 2027</div>
+          <ul class="tl-bullets">
+            <li><strong>Dissertation:</strong> Interactive IDE-integrated software visualization tools for code comprehension</li>
+            <li><strong>Research areas:</strong> Empirical Software Engineering, AI-assisted development, Software Supply Chain Security</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div>
+            <div class="tl-role">M.Sc. in Computer Science</div>
+            <div class="tl-org">University of New Orleans (now LSU New Orleans) — New Orleans, LA</div>
+          </div>
+          <div class="tl-date">2018 – 2020</div>
+        </div>
+
+        <div class="timeline-item">
+          <div>
+            <div class="tl-role">B.Sc. in Computer Science</div>
+            <div class="tl-org">University of Zambia — Lusaka, Zambia</div>
+          </div>
+          <div class="tl-date">2007 – 2011</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Publications -->
   <section id="publications">
     <div class="container">
       <h2 class="section-title">Selected Publications</h2>
       <p style="font-size:.85rem;color:var(--gray-500);margin-top:-1.25rem;margin-bottom:1.5rem;">
-        Peer-reviewed conference papers at top software-engineering venues. Book chapters, posters, and earlier work on
+        6 peer-reviewed publications at top software-engineering venues. Also presented at ITNG 2025 (Springer) and i-ETC 2024/2026; full list with citation counts on
         <a href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;">Google Scholar →</a>
       </p>
       <div class="pub-list">
@@ -533,105 +753,10 @@
           <div class="pub-authors">Rabbi, M. F., Champa, A. I., <strong>Nachuma, C.</strong> &amp; Zibran, M. F.</div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title">Professional Experience</h2>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Graduate Research &amp; Teaching Assistant</div>
-            <div class="tl-org">Idaho State University — Pocatello, ID</div>
-          </div>
-          <div class="tl-date">Aug 2023 – Present</div>
-          <ul class="tl-bullets">
-            <li>Designed and implemented an Eclipse plugin for interactive software visualization, enabling developers to explore structural relationships and software metrics within the IDE.</li>
-            <li>Conducted a Systematic Mapping Study (Kitchenham's guidelines) synthesizing literature on software visualization tools.</li>
-            <li>Built reproducible data pipelines to extract and model pull request and dependency data from GitHub and Maven at scale using Python (Pandas, NumPy).</li>
-            <li>Applied regression analysis to study AI agent behavior in code review workflows — produced a peer-reviewed publication at MSR 2026.</li>
-            <li>Mentored 20+ students in advanced OOP, algorithms, and database systems.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Instructor of Record — CS 3309: Advanced Object-Oriented Programming</div>
-            <div class="tl-org">Idaho State University — Pocatello, ID</div>
-          </div>
-          <div class="tl-date">Fall 2025</div>
-          <ul class="tl-bullets">
-            <li>Sole instructor for a full undergraduate course covering advanced OOP principles, design patterns, and software engineering practices.</li>
-            <li>Designed coursework, delivered lectures, held office hours, and assessed student performance independently.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Senior ICT Officer / Software Engineering Lead</div>
-            <div class="tl-org">National Assembly of Zambia — Lusaka, Zambia</div>
-          </div>
-          <div class="tl-date">Jun 2012 – Sep 2023</div>
-          <ul class="tl-bullets">
-            <li>Directed mission-critical IT operations supporting 300+ users across government departments, maintaining high system reliability.</li>
-            <li>Led end-to-end development and modernization of parliamentary web platforms and digital workflow systems.</li>
-            <li>Reduced issue resolution time by 30% through infrastructure optimization and workflow redesign.</li>
-            <li>Planned and managed sectional training budgets; delivered technical training to staff and senior management.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Systems Librarian Intern</div>
-            <div class="tl-org">Prosentient Systems Pty — Sydney, Australia</div>
-          </div>
-          <div class="tl-date">May 2019 – Jul 2019</div>
-          <ul class="tl-bullets">
-            <li>Developed a Java-based real-time communication tool improving cross-institutional research collaboration.</li>
-            <li>Administered Linux servers and open-source platforms (DSpace, Openfire) using Git and SSH.</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Ph.D. in Computer Science — Software Engineering &amp; Cybersecurity</div>
-            <div class="tl-org">Idaho State University — Pocatello, ID &nbsp;·&nbsp; GPA: 4.0</div>
-          </div>
-          <div class="tl-date">Aug 2023 – May 2027</div>
-          <ul class="tl-bullets">
-            <li><strong>Dissertation:</strong> Interactive IDE-integrated software visualization tools for code comprehension</li>
-            <li><strong>Research areas:</strong> Empirical Software Engineering, AI-assisted development, Software Supply Chain Security</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">M.Sc. in Computer Science</div>
-            <div class="tl-org">University of New Orleans (now LSU New Orleans) — New Orleans, LA</div>
-          </div>
-          <div class="tl-date">2021 – 2023</div>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">B.Sc. in Computer Science</div>
-            <div class="tl-org">University of Zambia — Lusaka, Zambia</div>
-          </div>
-          <div class="tl-date">2007 – 2011</div>
+        <div class="pub-card">
+          <div class="pub-venue">ACM CompEd 2025 · ACM Global Computing Education Conference</div>
+          <div class="pub-title">Future Ready, Globally Relevant: Aligning Africa's Tertiary CS Education with Global Standards</div>
+          <div class="pub-authors">Jonathan, M., Oudshoorn, M., Binamungu, L. P., Bainomugisha, E., <strong>Nachuma, C.</strong>, et al.</div>
         </div>
 
       </div>
@@ -653,35 +778,45 @@
         </div>
 
         <div class="skill-card">
-          <div class="skill-cat">Data &amp; ML</div>
+          <div class="skill-cat">Systems &amp; DevOps</div>
           <div class="skill-tags">
-            <span class="tag">Pandas</span><span class="tag">NumPy</span>
-            <span class="tag">Linear Regression</span><span class="tag">Logistic Regression</span>
-            <span class="tag">Feature Engineering</span>
+            <span class="tag">Git</span><span class="tag">Docker</span>
+            <span class="tag">GitHub Actions (CI/CD)</span><span class="tag">Linux</span>
+            <span class="tag">JGit</span><span class="tag">Eclipse JDT</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-cat">Databases</div>
+          <div class="skill-cat">Data &amp; Databases</div>
           <div class="skill-tags">
             <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
-            <span class="tag">Oracle</span><span class="tag">Neo4j</span>
+            <span class="tag">Oracle</span><span class="tag">Neo4j (Cypher/graph queries)</span>
+            <span class="tag">DuckDB</span><span class="tag">Parquet</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-cat">DevOps &amp; Systems</div>
+          <div class="skill-cat">LLM &amp; AI Integration</div>
           <div class="skill-tags">
-            <span class="tag">Linux</span><span class="tag">Git</span>
-            <span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+            <span class="tag">Anthropic Claude</span><span class="tag">OpenAI</span>
+            <span class="tag">Ollama</span><span class="tag">Prompt/Context Engineering</span>
+            <span class="tag">Graph-Grounded Retrieval</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-cat">Research Methods</div>
+          <div class="skill-cat">Automation &amp; Data Pipelines</div>
           <div class="skill-tags">
-            <span class="tag">Empirical SE</span><span class="tag">Systematic Mapping</span>
-            <span class="tag">HCI Methods</span><span class="tag">Statistical Modeling</span>
+            <span class="tag">REST API Integration</span><span class="tag">BeautifulSoup</span>
+            <span class="tag">ETL Scripting</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-cat">Research &amp; Statistical Methods</div>
+          <div class="skill-tags">
+            <span class="tag">Logistic Regression (clustered SEs)</span><span class="tag">Wilson Score CIs</span>
+            <span class="tag">Systematic Mapping</span><span class="tag">Qualitative Coding</span>
           </div>
         </div>
 
@@ -689,7 +824,7 @@
           <div class="skill-cat">Cybersecurity</div>
           <div class="skill-tags">
             <span class="tag">Supply Chain Risk</span><span class="tag">Threat Intelligence</span>
-            <span class="tag">SBOM Evaluation</span><span class="tag">Cyber Resilience</span>
+            <span class="tag">SBOM Evaluation</span><span class="tag">CVE/OSV Analysis</span>
           </div>
         </div>
 
@@ -783,9 +918,9 @@
           <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           Connect on LinkedIn
         </a>
-        <a class="btn btn-outline" href="ResumeGeneral.pdf" target="_blank">
+        <a class="btn btn-outline" href="CostainNachuma_SWE_Resume.pdf" target="_blank">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download CV
+          Download Resume
         </a>
       </div>
     </div>
