@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Costain Nachuma — Software Engineer</title>
-  <meta name="description" content="Costain Nachuma — Software Engineer building production AI developer tooling and large-scale data systems. PhD student in Computer Science at Idaho State University (4.0 GPA), 9+ years prior industry experience, 6 peer-reviewed publications." />
+  <title>Costain Nachuma | Software Engineer</title>
+  <meta name="description" content="Costain Nachuma | Software Engineer. IDE plugins, LLM gateways, and data pipelines over tens of millions of records. Ph.D. student at Idaho State University. 9+ years of industry experience." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="canonical" href="https://costain.github.io/" />
 
   <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Costain Nachuma — Software Engineer" />
-  <meta property="og:description" content="Software Engineer building production AI developer tooling and large-scale data systems. PhD student in Computer Science at Idaho State University (4.0 GPA), 9+ years prior industry experience, 6 peer-reviewed publications." />
+  <meta property="og:title" content="Costain Nachuma | Software Engineer" />
+  <meta property="og:description" content="Software Engineer building developer tools and large-scale data systems. Ph.D. student at Idaho State University, 9+ years of industry experience." />
   <meta property="og:url" content="https://costain.github.io/" />
   <meta property="og:image" content="https://costain.github.io/favicon.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Costain Nachuma — Software Engineer" />
-  <meta name="twitter:description" content="Software Engineer building production AI developer tooling and large-scale data systems. PhD student at Idaho State University." />
+  <meta name="twitter:title" content="Costain Nachuma | Software Engineer" />
+  <meta name="twitter:description" content="Developer tools, LLM gateways, and data pipelines. Ph.D. student at Idaho State University." />
   <meta name="twitter:image" content="https://costain.github.io/favicon.png" />
 
   <script type="application/ld+json">
@@ -42,1008 +42,595 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:       #1a2744;
-      --blue:       #2563eb;
-      --blue-light: #dbeafe;
-      --teal:       #0891b2;
-      --green:      #16a34a;
-      --green-light:#dcfce7;
-      --gray-50:    #f8fafc;
-      --gray-100:   #f1f5f9;
-      --gray-200:   #e2e8f0;
-      --gray-500:   #64748b;
-      --gray-700:   #334155;
-      --gray-900:   #0f172a;
-      --white:      #ffffff;
-      --radius:     12px;
-      --shadow:     0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
-      --shadow-lg:  0 4px 6px rgba(0,0,0,.07), 0 10px 40px rgba(0,0,0,.1);
+      --bg: #f6f5f2;
+      --paper: #fffcf8;
+      --ink: #1c1917;
+      --muted: #57534e;
+      --faint: #8a847c;
+      --line: #e6e1d8;
+      --accent: #1e3a5f;
+      --max: 820px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--gray-50);
-      color: var(--gray-900);
-      line-height: 1.6;
-      font-size: 15px;
+      font-family: "Source Sans 3", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 17px;
     }
 
-    /* ── Nav ── */
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .skip {
+      position: absolute; left: 1rem; top: -40px;
+      background: var(--ink); color: white; padding: .4rem .7rem; z-index: 200;
+    }
+    .skip:focus { top: .5rem; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Nav */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-200);
-      padding: 0 2rem;
+      background: rgba(246, 245, 242, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-    nav ul {
-      display: flex; gap: .1rem; list-style: none; align-items: center;
-      max-width: 1000px; margin: 0 auto;
-      overflow-x: auto; white-space: nowrap;
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; gap: 1.25rem;
+      min-height: 56px;
     }
-    nav a {
-      display: inline-block;
-      padding: .75rem .85rem;
-      font-size: .78rem; font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
-      color: var(--gray-500);
-      text-decoration: none;
-      transition: color .15s;
+    .wordmark {
+      font-weight: 600; letter-spacing: -0.02em;
+      color: var(--ink); text-decoration: none; font-size: .95rem;
+      margin-right: auto;
     }
-    nav a:hover { color: var(--blue); }
-    nav a.active { color: var(--blue); box-shadow: inset 0 -2px 0 var(--blue); }
-    .nav-cta {
-      margin-left: auto;
-      background: var(--blue); color: var(--white) !important;
-      border-radius: 8px; padding: .4rem .9rem !important;
-      font-weight: 600 !important;
+    .wordmark:hover { color: var(--ink); }
+    .nav-links { display: flex; align-items: center; gap: .15rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: .84rem; font-weight: 500;
+      padding: .4rem .55rem;
     }
-    .nav-cta:hover { background: #1d4ed8; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-resume {
+      border: 1px solid var(--ink); color: var(--ink) !important;
+      border-radius: 999px; padding: .28rem .75rem !important;
+      margin-left: .35rem; font-weight: 600 !important;
+    }
+    .nav-resume:hover { background: var(--ink); color: var(--bg) !important; }
 
-    /* ── Layout ── */
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
-    section { padding: 4rem 0; }
-    section + section { border-top: 1px solid var(--gray-200); }
+    /* Hero */
+    header.hero { padding: 4.25rem 0 0; }
+    .kicker {
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: .85rem;
+    }
+    h1 {
+      font-family: "Source Serif 4", serif;
+      font-weight: 500; font-size: clamp(2.4rem, 6vw, 3.35rem);
+      letter-spacing: -0.025em; line-height: 1.05;
+    }
+    .role {
+      margin-top: .7rem; color: var(--muted); font-size: 1.02rem;
+    }
+    .lede {
+      margin-top: 1.35rem; max-width: 38rem;
+      font-size: 1.12rem; line-height: 1.55; color: var(--ink);
+    }
+    .hero-links {
+      display: flex; flex-wrap: wrap; gap: .35rem 1.15rem;
+      margin-top: 1.35rem; font-size: .95rem;
+    }
+    .hero-links a { color: var(--ink); font-weight: 600; }
 
-    h2.section-title {
-      font-family: 'Merriweather', serif;
-      font-size: 1.45rem; font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.75rem;
-      display: flex; align-items: center; gap: .6rem;
+    .metrics {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      margin-top: 2.75rem;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
-    h2.section-title::after {
-      content: ''; flex: 1; height: 2px;
-      background: linear-gradient(to right, var(--blue-light), transparent);
-      border-radius: 2px;
+    .metric { padding: 1.05rem 1rem 1.1rem 0; }
+    .metric + .metric { padding-left: 1rem; border-left: 1px solid var(--line); }
+    .metric b {
+      display: block;
+      font-family: "Source Serif 4", serif;
+      font-weight: 500; font-size: 1.45rem; letter-spacing: -0.02em;
     }
+    .metric span { display: block; margin-top: .15rem; color: var(--muted); font-size: .82rem; }
 
-    /* ── Hero ── */
-    #hero {
-      background: linear-gradient(140deg, #0f1f45 0%, #1a2f60 45%, #16335c 100%);
-      color: var(--white);
-      padding: 4.5rem 0 3.5rem;
+    /* Sections */
+    section { padding: 3.25rem 0 0; }
+    h2 {
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--faint);
+      margin-bottom: .25rem;
     }
-    #hero .container {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: start;
-    }
-    .hero-left { display: flex; flex-direction: column; gap: 1.2rem; }
+    .section-note { color: var(--muted); font-size: .92rem; margin: .35rem 0 0; }
 
-    .hero-badges { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: .4rem;
-      border-radius: 999px;
-      padding: .28rem .85rem;
-      font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+    /* Work */
+    .work { border-top: 1px solid var(--line); margin-top: 1.25rem; }
+    .work article {
+      display: grid; grid-template-columns: 9.5rem 1fr;
+      gap: 1rem 1.5rem;
+      padding: 1.6rem 0 1.7rem;
+      border-bottom: 1px solid var(--line);
     }
-    .badge-status {
-      background: var(--green-light); color: var(--green);
+    .work-meta { color: var(--faint); font-size: .82rem; line-height: 1.45; padding-top: .2rem; }
+    .work-index { display: block; font-variant-numeric: tabular-nums; letter-spacing: .04em; margin-bottom: .35rem; color: var(--muted); }
+    .work h3 {
+      font-family: "Source Serif 4", serif;
+      font-weight: 500; font-size: 1.28rem; letter-spacing: -0.02em; line-height: 1.25;
     }
-    .badge-role {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      color: #93c5fd;
-    }
+    .outcome { margin-top: .45rem; font-weight: 600; font-size: 1rem; }
+    .work p { margin-top: .55rem; color: var(--muted); font-size: .98rem; }
+    .work-links { margin-top: .7rem; display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .9rem; font-weight: 600; }
+    .stack { margin-top: .65rem; color: var(--faint); font-size: .82rem; }
 
-    #hero h1 {
-      font-family: 'Merriweather', serif;
-      font-size: clamp(2rem, 4.5vw, 2.8rem);
-      font-weight: 700; line-height: 1.15;
+    /* Experience */
+    .jobs { margin-top: 1.1rem; border-top: 1px solid var(--line); }
+    .job {
+      display: grid; grid-template-columns: 9.5rem 1fr;
+      gap: .35rem 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--line);
     }
-    .hero-tagline {
-      font-size: 1.05rem; color: #bfdbfe; max-width: 580px; line-height: 1.65;
-    }
+    .when { color: var(--faint); font-size: .84rem; padding-top: .2rem; font-variant-numeric: tabular-nums; }
+    .job h3 { font-size: 1.02rem; font-weight: 600; letter-spacing: -0.01em; }
+    .org { color: var(--muted); font-size: .92rem; margin-top: .1rem; }
+    .job ul { margin: .55rem 0 0; padding-left: 1.05rem; color: var(--muted); font-size: .95rem; }
+    .job li + li { margin-top: .3rem; }
+    .job strong { color: var(--ink); font-weight: 600; }
 
-    .hero-meta {
-      display: flex; flex-wrap: wrap; gap: 1rem;
-      font-size: .8rem; color: #93c5fd;
+    /* Skills */
+    .skills { margin-top: 1.15rem; border-top: 1px solid var(--line); }
+    .skill-row {
+      display: grid; grid-template-columns: 9.5rem 1fr;
+      gap: .4rem 1.5rem;
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .95rem;
     }
-    .hero-meta a, .hero-meta span {
-      display: flex; align-items: center; gap: .35rem;
-      color: #93c5fd; text-decoration: none;
-    }
-    .hero-meta a:hover { color: var(--white); }
+    .skill-row dt { color: var(--faint); font-size: .82rem; padding-top: .15rem; }
+    .skill-row dd { color: var(--ink); }
 
-    .hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .25rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: .45rem;
-      padding: .55rem 1.2rem;
-      border-radius: 8px;
-      font-size: .85rem; font-weight: 600;
-      text-decoration: none;
-      transition: all .15s;
+    /* Education */
+    .edu { margin-top: 1.1rem; border-top: 1px solid var(--line); }
+    .edu-row {
+      display: grid; grid-template-columns: 9.5rem 1fr;
+      gap: .2rem 1.5rem;
+      padding: .95rem 0;
+      border-bottom: 1px solid var(--line);
     }
-    .btn-primary { background: var(--blue); color: var(--white); }
-    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid rgba(255,255,255,.35);
-      color: var(--white);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,.1); transform: translateY(-1px); }
-    .btn-white { background: var(--white); color: var(--navy); }
-    .btn-white:hover { background: #f0f4ff; transform: translateY(-1px); }
+    .edu h3 { font-size: 1rem; font-weight: 600; }
+    .edu p { color: var(--muted); font-size: .92rem; margin-top: .15rem; }
 
-    /* Stats sidebar */
-    .hero-stats {
-      display: flex; flex-direction: column; gap: .75rem;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.75rem;
-      min-width: 180px;
+    /* Publications */
+    .pubs { list-style: none; margin-top: 1.15rem; border-top: 1px solid var(--line); }
+    .pubs li {
+      display: grid; grid-template-columns: 7.25rem 1fr;
+      gap: .4rem 1.25rem;
+      padding: .95rem 0;
+      border-bottom: 1px solid var(--line);
     }
-    .stat-item { text-align: center; }
-    .stat-num {
-      font-family: 'Merriweather', serif;
-      font-size: 1.8rem; font-weight: 700; color: var(--white);
-      line-height: 1;
-    }
-    .stat-label { font-size: .72rem; color: #93c5fd; margin-top: .2rem; letter-spacing: .03em; }
-    .stat-divider { border: none; border-top: 1px solid rgba(255,255,255,.1); }
+    .venue { color: var(--accent); font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding-top: .2rem; }
+    .pubs h3 { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; }
+    .authors { color: var(--muted); font-size: .88rem; margin-top: .2rem; }
+    .authors strong { color: var(--ink); font-weight: 600; }
+    .pub-extra { color: var(--faint); font-size: .82rem; margin-top: .15rem; }
 
-    /* ── Expertise pillars ── */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+    /* Recognition */
+    .two {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem; margin-top: 1.25rem;
     }
-    .pillar {
-      background: var(--gray-50);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      padding: 1.1rem 1.2rem;
-      text-align: center;
+    .two h3, .service h3 {
+      font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: .55rem;
     }
-    .pillar-icon { font-size: 1.5rem; margin-bottom: .4rem; }
-    .pillar-title { font-weight: 700; color: var(--navy); font-size: .88rem; margin-bottom: .25rem; }
-    .pillar-desc { font-size: .78rem; color: var(--gray-500); line-height: 1.5; }
+    .two ul, .service ul { list-style: none; }
+    .two li, .service li {
+      padding: .45rem 0;
+      border-top: 1px solid var(--line);
+      font-size: .92rem;
+    }
+    .two li span { display: block; color: var(--faint); font-size: .8rem; margin-top: .05rem; }
+    .service { margin-top: 1.75rem; }
+    .cert { margin-top: 1.25rem; color: var(--muted); font-size: .92rem; }
 
-    .about-text {
-      font-size: .95rem; color: var(--gray-700); line-height: 1.8;
+    /* Contact */
+    .contact {
+      margin-top: 3.25rem;
+      padding: 2.25rem 0 3rem;
+      border-top: 1px solid var(--line);
     }
-    .about-affiliations {
-      display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.25rem;
-    }
-    .aff-chip {
-      display: inline-flex; align-items: center; gap: .4rem;
-      border-radius: 8px; padding: .3rem .75rem;
-      font-size: .8rem; font-weight: 600; text-decoration: none;
-      transition: opacity .15s;
-    }
-    .aff-chip:hover { opacity: .8; }
-    .aff-blue { background: var(--blue-light); color: var(--blue); }
-    .aff-gray { background: var(--gray-100); color: var(--gray-700); }
+    .contact h2 { margin-bottom: .6rem; }
+    .contact p { max-width: 36rem; font-size: 1.05rem; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: .4rem 1.15rem; margin-top: 1rem; font-weight: 600; }
+    .contact-links a { color: var(--ink); }
 
-    /* ── Publications ── */
-    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
-    .pub-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.4rem 1.6rem;
-      border-left: 4px solid var(--blue);
-      transition: transform .15s, box-shadow .15s;
-    }
-    .pub-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-    .pub-venue {
-      font-size: .7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: .4rem;
-    }
-    .pub-title {
-      font-family: 'Merriweather', serif;
-      font-size: .93rem; font-weight: 700; color: var(--navy);
-      line-height: 1.45; margin-bottom: .35rem;
-    }
-    .pub-authors { font-size: .82rem; color: var(--gray-500); }
-    .pub-authors strong { color: var(--gray-700); }
-    .pub-note { font-size: .75rem; color: var(--teal); font-weight: 600; margin-top: .3rem; }
-    .pub-link {
-      display: inline-flex; align-items: center; gap: .3rem;
-      margin-top: .55rem;
-      font-size: .78rem; font-weight: 600; color: var(--blue); text-decoration: none;
-    }
-    .pub-link:hover { text-decoration: underline; }
-
-    /* ── Projects ── */
-    .project-list { display: flex; flex-direction: column; gap: 1.25rem; }
-    .project-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.5rem 1.7rem;
-      border-left: 4px solid var(--teal);
-      transition: transform .15s, box-shadow .15s;
-    }
-    .project-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-    .project-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
-    .project-title { font-family: 'Merriweather', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); }
-    .project-sub { font-size: .8rem; color: var(--gray-500); margin-top: .25rem; }
-    .project-links { display: flex; gap: .5rem; flex-wrap: wrap; }
-    .project-link {
-      font-size: .75rem; font-weight: 600; color: var(--blue); text-decoration: none;
-      display: inline-flex; align-items: center; gap: .3rem;
-      padding: .3rem .65rem; background: var(--blue-light); border-radius: 6px;
-      transition: background .15s;
-    }
-    .project-link:hover { background: #c7ddfd; }
-    .project-desc { font-size: .86rem; color: var(--gray-700); line-height: 1.7; margin: .9rem 0 .8rem; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-
-    /* ── Timeline ── */
-    .timeline { display: flex; flex-direction: column; gap: 1.1rem; }
-    .timeline-item {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.4rem 1.6rem;
-      display: grid; grid-template-columns: 1fr auto;
-      gap: .2rem 1rem;
-    }
-    .tl-role { font-weight: 700; color: var(--navy); font-size: .95rem; }
-    .tl-org  { font-size: .84rem; color: var(--teal); font-weight: 500; margin-top: .1rem; }
-    .tl-date {
-      font-size: .75rem; color: var(--white);
-      background: var(--navy);
-      border-radius: 6px; padding: .2rem .6rem;
-      white-space: nowrap; height: fit-content;
-      font-weight: 500;
-    }
-    .tl-bullets { grid-column: 1 / -1; margin-top: .7rem; padding-left: 1.1rem; }
-    .tl-bullets li { font-size: .84rem; color: var(--gray-700); margin-bottom: .3rem; line-height: 1.65; }
-
-    /* ── Skills ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-    .skill-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.2rem 1.4rem;
-    }
-    .skill-cat {
-      font-size: .7rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: .6rem;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .tag {
-      background: var(--gray-100);
-      color: var(--gray-700);
-      border-radius: 6px;
-      padding: .22rem .6rem;
-      font-size: .78rem; font-weight: 500;
-    }
-
-    /* ── Awards ── */
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1rem;
-    }
-    .award-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.3rem 1.4rem;
-      border-top: 3px solid var(--blue);
-      text-align: center;
-    }
-    .award-icon { font-size: 1.6rem; margin-bottom: .5rem; }
-    .award-title { font-weight: 700; color: var(--navy); font-size: .88rem; margin-bottom: .3rem; }
-    .award-event { font-size: .78rem; color: var(--gray-500); }
-
-    /* ── Leadership ── */
-    .lead-list { display: flex; flex-direction: column; gap: .85rem; }
-    .lead-item {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.1rem 1.4rem;
-      display: flex; gap: 1rem; align-items: flex-start;
-    }
-    .lead-dot {
-      width: 9px; height: 9px; min-width: 9px;
-      background: var(--blue); border-radius: 50%; margin-top: .45rem;
-    }
-    .lead-role { font-weight: 600; color: var(--navy); font-size: .88rem; }
-    .lead-desc { font-size: .83rem; color: var(--gray-700); margin-top: .15rem; }
-
-    /* ── CTA Section ── */
-    #contact {
-      background: linear-gradient(140deg, #0f1f45 0%, #1a2f60 100%);
-      padding: 4rem 0;
-    }
-    #contact .container { text-align: center; }
-    #contact h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.8rem; color: var(--white); margin-bottom: .75rem;
-    }
-    #contact p {
-      color: #bfdbfe; max-width: 520px; margin: 0 auto 2rem;
-      font-size: .95rem; line-height: 1.7;
-    }
-    .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
-
-    /* ── Footer ── */
     footer {
-      background: var(--gray-900);
-      color: #94a3b8;
-      text-align: center;
-      padding: 1.75rem;
-      font-size: .82rem;
+      border-top: 1px solid var(--line);
+      padding: 1.25rem 0 2rem;
+      color: var(--faint); font-size: .82rem;
     }
-    footer a { color: #93c5fd; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    footer a { color: var(--muted); }
 
-    /* ── Responsive ── */
     @media (max-width: 720px) {
-      #hero .container { grid-template-columns: 1fr; }
-      .hero-stats { flex-direction: row; flex-wrap: wrap; justify-content: space-around; min-width: unset; }
-      .pillars { grid-template-columns: 1fr; }
-      .timeline-item { grid-template-columns: 1fr; }
-      .tl-date { width: fit-content; }
-      nav ul { gap: 0; }
-      .nav-cta { margin-left: 0; }
+      .nav-inner { flex-wrap: wrap; padding-top: .6rem; padding-bottom: .6rem; }
+      .nav-links { width: 100%; overflow-x: auto; }
+      .metrics, .work article, .job, .skill-row, .edu-row, .pubs li, .two {
+        grid-template-columns: 1fr;
+      }
+      .metric + .metric { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .metric:nth-child(odd) { padding-right: .75rem; }
+      .metric:nth-child(even) { padding-left: .75rem; border-left: 1px solid var(--line); }
+      .metric:nth-child(n + 3) { border-top: 1px solid var(--line); }
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#work">Skip to work</a>
 
-  <!-- Nav -->
   <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a class="wordmark" href="#top">Costain Nachuma</a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-resume" href="CostainNachuma_SWE_Resume.pdf">Resume</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Hero -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-left">
-
-        <div class="hero-badges">
-          <span class="hero-badge badge-role">Software Engineer</span>
-          <span class="hero-badge badge-role">PhD Student · Idaho State University</span>
-        </div>
-
-        <h1>Costain Nachuma</h1>
-
-        <p class="hero-tagline">
-          I ship production developer tooling — IDE plugins, LLM-integrated pipelines, graph-grounded retrieval systems — and study how AI reshapes software engineering at scale. 9+ years of prior industry experience; currently researching AI-assisted code comprehension and supply chain security.
-        </p>
-
-        <div class="hero-meta">
-          <span>
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Pocatello, ID
-          </span>
-          <a class="eml" href="#" data-u="costainnachuma" data-d="isu.edu">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            costainnachuma [at] isu.edu
-          </a>
-          <a href="https://sites.google.com/isu.edu/secret/" target="_blank" rel="noopener">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            SECReT Lab
-          </a>
-          <a href="https://www2.cose.isu.edu/~minhazzibran/" target="_blank" rel="noopener">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            Advisor: Dr. Minhaz Zibran
-          </a>
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn btn-white" href="CostainNachuma_SWE_Resume.pdf" target="_blank">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Resume
-          </a>
-          <a class="btn btn-outline" href="https://github.com/costain" target="_blank" rel="noopener">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .28.18.61.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
-            GitHub
-          </a>
-          <a class="btn btn-primary" href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
-          </a>
-          <a class="btn btn-outline" href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            Google Scholar
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Stats sidebar -->
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">6</div>
-          <div class="stat-label">Publications</div>
-        </div>
-        <hr class="stat-divider" />
-        <div class="stat-item">
-          <div class="stat-num">4.0</div>
-          <div class="stat-label">GPA</div>
-        </div>
-        <hr class="stat-divider" />
-        <div class="stat-item">
-          <div class="stat-num">9+</div>
-          <div class="stat-label">Years Industry</div>
-        </div>
-        <hr class="stat-divider" />
-        <div class="stat-item">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Users Supported</div>
-        </div>
-        <hr class="stat-divider" />
-        <div class="stat-item">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Awards Won</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About</h2>
-
-      <div class="pillars">
-        <div class="pillar">
-          <div class="pillar-icon">🛠️</div>
-          <div class="pillar-title">Production AI Tooling</div>
-          <div class="pillar-desc">Shipped a 5-layer Eclipse IDE plugin spanning three LLM backends, released publicly with a Zenodo artifact</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">📊</div>
-          <div class="pillar-title">Large-Scale Systems</div>
-          <div class="pillar-desc">Python/DuckDB and Neo4j pipelines processing 14M+ records — GitHub, Maven, and Chromium ecosystems</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">🔒</div>
-          <div class="pillar-title">Supply Chain Security</div>
-          <div class="pillar-desc">Quantifying dependency risks and evaluating SBOM tools across open-source ecosystems</div>
-        </div>
-      </div>
-
-      <p class="about-text">
-        Software engineer and PhD student in Computer Science at Idaho State University (GPA: 4.0) who ships production tooling end-to-end: designed and released <strong>Comprendia</strong>, a 5-layer Eclipse IDE plugin integrating three LLM backends, and built Python/graph-database pipelines processing 14M+ records. Before academia, I spent 9+ years leading engineering and infrastructure for a 500+ user government network at the National Assembly of Zambia. My research on AI-assisted software engineering is published at top venues including ICSME 2026, MSR 2026, MSR 2025, MSR 2024, and ACM SAC 2024. I bring both rigorous research depth and real production experience.
+  <header class="hero" id="top">
+    <div class="wrap">
+      <p class="kicker">Software Engineer</p>
+      <h1>Costain Nachuma</h1>
+      <p class="role">Ph.D. student, Computer Science · Idaho State University · Pocatello, ID</p>
+      <p class="lede">
+        I build developer tools and the data systems behind them: an IDE plugin that grounds LLM explanations in a live dependency graph, and pipelines over tens of millions of pull requests and package releases.
       </p>
-
-      <div class="about-affiliations">
-        <a href="https://sites.google.com/isu.edu/secret/" target="_blank" rel="noopener" class="aff-chip aff-blue">
-          🏛️ SECReT Lab — Software Engineering &amp; Cybersecurity Research Team
-        </a>
-        <a href="https://www2.cose.isu.edu/~minhazzibran/" target="_blank" rel="noopener" class="aff-chip aff-gray">
-          🤝 Advisor: Dr. Minhaz Zibran
-        </a>
+      <div class="hero-links">
+        <a class="eml" href="#" data-u="costainnachuma" data-d="isu.edu">costainnachuma [at] isu.edu</a>
+        <a href="https://github.com/costain" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="news.html">News</a>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>9+ yrs</b><span>Industry engineering</span></div>
+        <div class="metric"><b>14.4M+</b><span>Package releases mined</span></div>
+        <div class="metric"><b>3</b><span>LLM backends shipped</span></div>
+        <div class="metric"><b>MSR · ICSME</b><span>Published venues</span></div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Selected Projects</h2>
-      <div class="project-list">
+  <main>
+    <section id="work">
+      <div class="wrap">
+        <h2>Selected work</h2>
+        <div class="work">
 
-        <div class="project-card">
-          <div class="project-head">
+          <article>
+            <div class="work-meta">
+              <span class="work-index">01</span>
+              Java · Eclipse JDT<br />Cytoscape.js · Neo4j
+            </div>
             <div>
-              <div class="project-title">Comprendia — AI-Augmented Code Comprehension</div>
-              <div class="project-sub">Eclipse IDE plugin · Java · 5-layer architecture</div>
+              <h3>Comprendia: AI-augmented code comprehension</h3>
+              <p class="outcome">Shipped a public Eclipse plugin that explains code from the dependency graph, not from embeddings.</p>
+              <p>
+                Five layers: a Cytoscape.js graph UI, a JDT AST engine, OSV.dev and JGit vulnerability overlays, and an <code>AiGateway</code> across Claude, OpenAI, and Ollama. Graph-Aware Callee Pruning (GACP) keeps prompts on the live call graph with an O(V+E) reachability filter, so the output stays deterministic and reproducible across model families. Benchmarked on 6 fixtures × 4 prompt modes × 3 LLM families. Tool demo at ICSME 2026.
+              </p>
+              <div class="work-links">
+                <a href="https://doi.org/10.5281/zenodo.20436759" target="_blank" rel="noopener">Zenodo artifact</a>
+                <a href="https://youtu.be/1wlh_RYehzA" target="_blank" rel="noopener">Demo</a>
+                <a href="https://arxiv.org/abs/2608.10290" target="_blank" rel="noopener">Paper</a>
+              </div>
             </div>
-            <div class="project-links">
-              <a class="project-link" href="https://doi.org/10.5281/zenodo.20436759" target="_blank" rel="noopener">
-                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                Zenodo Artifact
-              </a>
-              <a class="project-link" href="https://youtu.be/1wlh_RYehzA" target="_blank" rel="noopener">
-                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                Demo Video
-              </a>
-            </div>
-          </div>
-          <p class="project-desc">
-            Designed and shipped a 5-layer IDE plugin combining a Cytoscape.js dependency-graph UI, a JDT AST analysis engine, OSV.dev/JGit vulnerability integration, and an <code>AiGateway</code> spanning three production LLM backends (Claude, OpenAI, Ollama). Introduces <strong>Graph-Aware Callee Pruning (GACP)</strong>, an algorithm that grounds LLM prompts in a live dependency graph instead of embedding similarity — producing deterministic, auditable output reproducible across LLM families via an O(V+E) reachability filter. Benchmarked across 6 code fixtures × 4 prompt modes × 3 LLM families. Tool demo accepted at ICSME 2026.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Java</span><span class="tag">Eclipse JDT</span><span class="tag">Cytoscape.js</span>
-            <span class="tag">Neo4j</span><span class="tag">LLM Integration</span><span class="tag">OSV.dev</span>
-          </div>
-        </div>
+          </article>
 
-        <div class="project-card">
-          <div class="project-head">
+          <article>
+            <div class="work-meta">
+              <span class="work-index">02</span>
+              Python · DuckDB<br />Neo4j · Parquet
+            </div>
             <div>
-              <div class="project-title">Chromium Bug ETL Pipeline</div>
-              <div class="project-sub">Python · 5-script scraping &amp; parsing pipeline</div>
+              <h3>Ecosystem-scale mining pipelines</h3>
+              <p class="outcome">Two batch systems that turned public forges into study-ready datasets.</p>
+              <p>
+                A DuckDB pipeline processed 33,596 GitHub pull requests across 2,807 repositories for a study of how agent-authored changes get reviewed and merged. A separate Neo4j pipeline queried 14.4M+ Maven package releases for dependency-vulnerability analysis, a 21-hour job on a 64GB, 24-core machine. Results published at MSR 2026 and MSR 2025.
+              </p>
+              <div class="work-links">
+                <a href="https://doi.org/10.1145/3793302.3793561" target="_blank" rel="noopener">MSR 2026</a>
+                <a href="https://doi.org/10.1109/MSR66628.2025.00048" target="_blank" rel="noopener">MSR 2025</a>
+              </div>
             </div>
+          </article>
+
+          <article>
+            <div class="work-meta">
+              <span class="work-index">03</span>
+              Python · REST<br />HTML parsing
+            </div>
+            <div>
+              <h3>Chromium bug ETL</h3>
+              <p class="outcome">A complete Chromium issue dataset past a 1,000-record API cap.</p>
+              <p>
+                Five scraping and parsing scripts against the live Chromium tracker assembled 5,575 security and 4,605 performance bug reports. The dataset is the basis of “On the Assessment of Security and Performance Bugs in the Chromium Open-Source Project.”
+              </p>
+              <p class="stack">Python · BeautifulSoup · REST</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <h2>Experience</h2>
+        <div class="jobs">
+
+          <article class="job">
+            <div class="when">2023 – now</div>
+            <div>
+              <h3>Graduate Research &amp; Teaching Assistant</h3>
+              <p class="org">Idaho State University, Pocatello, ID</p>
+              <ul>
+                <li>Shipped <strong>Comprendia</strong> and the mining pipelines above: IDE tooling with three production LLM backends, plus DuckDB and Neo4j jobs over 33,596 pull requests and 14.4M+ package releases.</li>
+                <li>Mentored 20+ students. Ran a systematic mapping study, following Kitchenham’s guidelines, of software visualization tools.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="when">Fall 2025</div>
+            <div>
+              <h3>Instructor of Record, CS 3309, Advanced OOP</h3>
+              <p class="org">Idaho State University, Pocatello, ID</p>
+              <ul>
+                <li>Sole instructor for 45 undergraduates: curriculum, lectures, and grading. End-of-term rating 3.50/4.0 for teaching effectiveness (90% agree or strongly agree).</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="when">2020 – 2023</div>
+            <div>
+              <h3>Senior Support Specialist, Software Engineer</h3>
+              <p class="org">National Assembly of Zambia, Lusaka</p>
+              <ul>
+                <li>Modernized parliamentary web platforms and designed the test protocol for sessions with the VP, ministers, and MPs. Pre-meeting error discovery rose to about 95%.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="when">2019</div>
+            <div>
+              <h3>Systems Librarian Intern</h3>
+              <p class="org">Prosentient Systems, Sydney</p>
+              <ul>
+                <li>Built a Java real-time communication tool for cross-institution research, and administered Linux services (DSpace, Openfire) with Git and SSH.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="when">2012 – 2018</div>
+            <div>
+              <h3>Software Developer, Technical Support Specialist</h3>
+              <p class="org">National Assembly of Zambia, Lusaka</p>
+              <ul>
+                <li>Wrote an automated provisioning script for a country-wide network: configuration time down 90%, results consistent, issue resolution down 30%. Supported 500+ staff.</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <h2>Skills</h2>
+        <dl class="skills">
+          <div class="skill-row"><dt>Languages</dt><dd>Python, Java, C#, JavaScript, SQL</dd></div>
+          <div class="skill-row"><dt>Systems</dt><dd>Linux, Git, Docker, GitHub Actions, Eclipse JDT, JGit</dd></div>
+          <div class="skill-row"><dt>Data</dt><dd>DuckDB, Neo4j, PostgreSQL, MySQL, Oracle, Parquet, Pandas, NumPy</dd></div>
+          <div class="skill-row"><dt>Applied</dt><dd>LLM APIs (Claude, OpenAI, Ollama), CVE and OSV analysis, SBOM evaluation, logistic regression</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <h2>Education</h2>
+        <div class="edu">
+          <article class="edu-row">
+            <div class="when">2023 – 2028</div>
+            <div>
+              <h3>Ph.D. Computer Science · GPA 4.0</h3>
+              <p>Idaho State University. Software engineering and cybersecurity. Dissertation on AI-assisted code comprehension and review. Expected Spring 2028.</p>
+            </div>
+          </article>
+          <article class="edu-row">
+            <div class="when">2018 – 2020</div>
+            <div>
+              <h3>M.Sc. Computer Science</h3>
+              <p>University of New Orleans (now LSU New Orleans)</p>
+            </div>
+          </article>
+          <article class="edu-row">
+            <div class="when">2007 – 2011</div>
+            <div>
+              <h3>B.Sc. Computer Science</h3>
+              <p>University of Zambia</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <h2>Research</h2>
+        <p class="section-note">Six peer-reviewed papers. Also ITNG 2025 (Springer) and posters at i-ETC 2024 and 2026. Citation counts on <a href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+        <ol class="pubs">
+          <li>
+            <div class="venue">ICSME 2026</div>
+            <div>
+              <h3>Comprendia: AI-Augmented Code Comprehension</h3>
+              <p class="authors"><strong>Nachuma, C.</strong> &amp; Zibran, M. F.</p>
+              <p class="pub-extra">Tool demo and data showcase · <a href="https://arxiv.org/abs/2608.10290" target="_blank" rel="noopener">arXiv:2608.10290</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="venue">MSR 2026</div>
+            <div>
+              <h3>When AI Teammates Meet Code Review: Collaboration Signals Shaping the Integration of Agent-Authored Pull Requests</h3>
+              <p class="authors"><strong>Nachuma, C.</strong> &amp; Zibran, M. F.</p>
+              <p class="pub-extra"><a href="https://doi.org/10.1145/3793302.3793561" target="_blank" rel="noopener">doi.org/10.1145/3793302.3793561</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="venue">MSR 2025</div>
+            <div>
+              <h3>Decoding Dependency Risks: A Quantitative Study of Vulnerabilities in the Maven Ecosystem</h3>
+              <p class="authors"><strong>Nachuma, C.</strong>, Hossan, M. M., Turzo, A. K. &amp; Zibran, M. F.</p>
+              <p class="pub-extra"><a href="https://doi.org/10.1109/MSR66628.2025.00048" target="_blank" rel="noopener">doi.org/10.1109/MSR66628.2025.00048</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="venue">MSR 2024</div>
+            <div>
+              <h3>ChatGPT in Action: Analyzing Its Use in Software Development</h3>
+              <p class="authors">Champa, A. I., Rabbi, M. F., <strong>Nachuma, C.</strong> &amp; Zibran, M. F.</p>
+              <p class="pub-extra"><a href="https://doi.org/10.1145/3643991.3645077" target="_blank" rel="noopener">doi.org/10.1145/3643991.3645077</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="venue">ACM SAC 2024</div>
+            <div>
+              <h3>SBOM Generation Tools Under Microscope: A Focus on the npm Ecosystem</h3>
+              <p class="authors">Rabbi, M. F., Champa, A. I., <strong>Nachuma, C.</strong> &amp; Zibran, M. F.</p>
+              <p class="pub-extra"><a href="https://doi.org/10.1145/3605098.3635927" target="_blank" rel="noopener">doi.org/10.1145/3605098.3635927</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="venue">CompEd 2025</div>
+            <div>
+              <h3>Future Ready, Globally Relevant: Aligning Africa’s Tertiary CS Education with Global Standards</h3>
+              <p class="authors">Jonathan, M., Oudshoorn, M., Binamungu, L. P., Bainomugisha, E., <strong>Nachuma, C.</strong>, et al.</p>
+              <p class="pub-extra"><a href="https://doi.org/10.1145/3736251.3749527" target="_blank" rel="noopener">doi.org/10.1145/3736251.3749527</a></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="recognition">
+      <div class="wrap">
+        <h2>Recognition &amp; service</h2>
+        <div class="two">
+          <div>
+            <h3>Awards</h3>
+            <ul>
+              <li>Top Graduate Oral Presentation<span>ISU Research &amp; Creative Works Symposium, 2026</span></li>
+              <li>Top Graduate Poster<span>ISU Research &amp; Creative Works Symposium, 2026</span></li>
+              <li>Best Poster<span>Intermountain ITC Conference, 2024</span></li>
+              <li>Best Oral Presentation<span>ISU Research &amp; Creative Works Symposium, 2024</span></li>
+            </ul>
           </div>
-          <p class="project-desc">
-            Built a 5-script scraping/HTML-parsing pipeline against the live Chromium issue tracker, working around its 1,000-record API cap to assemble a complete research dataset. Powered a study of 5,575 security and 4,605 performance bug reports, published in "On the Assessment of Security and Performance Bugs in Chromium Open-Source Project."
-          </p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">BeautifulSoup</span><span class="tag">REST APIs</span><span class="tag">Data Engineering</span>
+          <div>
+            <h3>Funding</h3>
+            <ul>
+              <li>Dean’s Excellence Fund, ×2<span>Idaho State University · $1,376 · 2025–2026</span></li>
+              <li>Graduate School travel grants, ×3<span>Idaho State University · $2,458 · 2025–2026</span></li>
+              <li>NSF student travel grant<span>ACM CompEd 2025 · $1,000</span></li>
+              <li>ICSE 2025 SMeW travel award<span>Student Mentoring Workshop · $1,300</span></li>
+            </ul>
           </div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title">Professional Experience</h2>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Graduate Research &amp; Teaching Assistant</div>
-            <div class="tl-org">Idaho State University — Pocatello, ID</div>
-          </div>
-          <div class="tl-date">Aug 2023 – Present</div>
-          <ul class="tl-bullets">
-            <li>Designed and shipped <strong>Comprendia</strong>, an Eclipse IDE plugin with a 5-layer architecture (Cytoscape.js UI, JDT AST analysis engine, OSV.dev/JGit integration, and an <code>AiGateway</code> spanning three production LLM backends — Claude, OpenAI, Ollama); benchmarked across 6 code fixtures × 4 prompt modes × 3 LLM families and released publicly with a Zenodo artifact and demo video.</li>
-            <li>Built <strong>Graph-Aware Callee Pruning (GACP)</strong>, an algorithm that grounds LLM prompts in a live dependency graph instead of embedding similarity, producing deterministic, auditable output reproducible across LLM families (O(V+E) reachability filter).</li>
-            <li>Built a Python/DuckDB pipeline processing 33,596 GitHub pull requests across 2,807 repositories, and a separate Neo4j-backed pipeline querying 14.4M+ package releases for dependency-vulnerability analysis (21-hour batch job on a 64GB/24-core system); mentored 20+ students.</li>
-            <li>Conducted a Systematic Mapping Study (Kitchenham's guidelines) synthesizing literature on software visualization tools.</li>
+        <div class="service">
+          <h3>Service</h3>
+          <ul>
+            <li>Junior Program Committee, MSR 2027 (with ICSE, Dublin)</li>
+            <li>Program Committee, MSR 2027 Mining Challenge</li>
+            <li>Student volunteer, ASE 2026, Munich</li>
+            <li>Team lead, TechEquity AI Summit, Sunnyvale: 50+ volunteers, 2,000+ attendees (Nov 2025)</li>
+            <li>CS mentor, Idaho State University, 2023–present</li>
+            <li>President, University of Zambia Computer Society, 2010</li>
           </ul>
         </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Instructor of Record — CS 3309: Advanced Object-Oriented Programming</div>
-            <div class="tl-org">Idaho State University — Pocatello, ID</div>
-          </div>
-          <div class="tl-date">Fall 2025</div>
-          <ul class="tl-bullets">
-            <li>Sole instructor for a 45-student undergraduate course; independently designed the curriculum, delivered all lectures, and graded consistently — rated 3.50/4.0 for overall teaching effectiveness (90% agree/strongly agree) in end-of-term evaluations.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Senior Support Specialist, Software Engineer</div>
-            <div class="tl-org">National Assembly of Zambia — Lusaka, Zambia</div>
-          </div>
-          <div class="tl-date">Aug 2020 – Aug 2023</div>
-          <ul class="tl-bullets">
-            <li>Led modernization of parliamentary web platforms and designed a testing protocol for high-stakes congressional sessions (VP, ministers, MPs), raising pre-meeting error discovery to ~95%.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Systems Librarian Intern</div>
-            <div class="tl-org">Prosentient Systems Pty — Sydney, Australia</div>
-          </div>
-          <div class="tl-date">May 2019 – Jul 2019</div>
-          <ul class="tl-bullets">
-            <li>Developed a Java-based real-time communication tool improving cross-institutional research collaboration.</li>
-            <li>Administered Linux servers and open-source platforms (DSpace, Openfire) using Git and SSH.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Software Developer, Technical Support Specialist</div>
-            <div class="tl-org">National Assembly of Zambia — Lusaka, Zambia</div>
-          </div>
-          <div class="tl-date">Jun 2012 – Aug 2018</div>
-          <ul class="tl-bullets">
-            <li>Provided technical support for 500+ staff and built an automated provisioning script for a country-wide network, cutting configuration time 90% (100% consistent) and issue resolution time 30%.</li>
-          </ul>
-        </div>
-
+        <p class="cert">IBM / Coursera: Python for Data Science, AI &amp; Development, 2026. Lab: <a href="https://sites.google.com/isu.edu/secret/" target="_blank" rel="noopener">SECReT</a>. Advisor: <a href="https://www2.cose.isu.edu/~minhazzibran/" target="_blank" rel="noopener">Dr. Minhaz Zibran</a>.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Education -->
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">Ph.D. in Computer Science — Software Engineering &amp; Cybersecurity</div>
-            <div class="tl-org">Idaho State University — Pocatello, ID &nbsp;·&nbsp; GPA: 4.0</div>
-          </div>
-          <div class="tl-date">Aug 2023 – Spring 2028 (expected)</div>
-          <ul class="tl-bullets">
-            <li><strong>Dissertation:</strong> AI-assisted code comprehension and review</li>
-            <li><strong>Research areas:</strong> Empirical Software Engineering, AI-assisted development, Software Supply Chain Security</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">M.Sc. in Computer Science</div>
-            <div class="tl-org">University of New Orleans (now LSU New Orleans) — New Orleans, LA</div>
-          </div>
-          <div class="tl-date">2018 – 2020</div>
-        </div>
-
-        <div class="timeline-item">
-          <div>
-            <div class="tl-role">B.Sc. in Computer Science</div>
-            <div class="tl-org">University of Zambia — Lusaka, Zambia</div>
-          </div>
-          <div class="tl-date">2007 – 2011</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Publications -->
-  <section id="publications">
-    <div class="container">
-      <h2 class="section-title">Selected Publications</h2>
-      <p style="font-size:.85rem;color:var(--gray-500);margin-top:-1.25rem;margin-bottom:1.5rem;">
-        6 peer-reviewed publications at top software-engineering venues. Also presented at ITNG 2025 (Springer), plus posters at i-ETC 2024 and i-ETC 2026. Papers with citation counts on
-        <a href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;">Google Scholar →</a>
-      </p>
-      <div class="pub-list">
-
-        <div class="pub-card">
-          <div class="pub-venue">ICSME 2026 · IEEE International Conference on Software Maintenance and Evolution</div>
-          <div class="pub-title">Comprendia: AI-Augmented Code Comprehension</div>
-          <div class="pub-authors"><strong>Nachuma, C.</strong> &amp; Zibran, M. F.</div>
-          <div class="pub-note">Tool Demonstration and Data Showcase Track</div>
-          <a class="pub-link" href="https://arxiv.org/abs/2608.10290" target="_blank" rel="noopener">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            arXiv:2608.10290
-          </a>
-        </div>
-
-        <div class="pub-card">
-          <div class="pub-venue">MSR 2026 · 23rd International Conference on Mining Software Repositories</div>
-          <div class="pub-title">When AI Teammates Meet Code Review: Collaboration Signals Shaping the Integration of Agent-Authored Pull Requests</div>
-          <div class="pub-authors"><strong>Nachuma, C.</strong> &amp; Zibran, M. F.</div>
-          <a class="pub-link" href="https://doi.org/10.1145/3793302.3793561" target="_blank" rel="noopener">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            doi.org/10.1145/3793302.3793561
-          </a>
-        </div>
-
-        <div class="pub-card">
-          <div class="pub-venue">MSR 2025 · 22nd International Conference on Mining Software Repositories</div>
-          <div class="pub-title">Decoding Dependency Risks: A Quantitative Study of Vulnerabilities in the Maven Ecosystem</div>
-          <div class="pub-authors"><strong>Nachuma, C.</strong>, Hossan, M. M., Turzo, A. K. &amp; Zibran, M. F.</div>
-          <a class="pub-link" href="https://doi.org/10.1109/MSR66628.2025.00048" target="_blank" rel="noopener">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            doi.org/10.1109/MSR66628.2025.00048
-          </a>
-        </div>
-
-        <div class="pub-card">
-          <div class="pub-venue">MSR 2024 · 21st ACM International Conference on Mining Software Repositories</div>
-          <div class="pub-title">ChatGPT in Action: Analyzing Its Use in Software Development</div>
-          <div class="pub-authors">Champa, A. I., Rabbi, M. F., <strong>Nachuma, C.</strong> &amp; Zibran, M. F.</div>
-          <a class="pub-link" href="https://doi.org/10.1145/3643991.3645077" target="_blank" rel="noopener">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            doi.org/10.1145/3643991.3645077
-          </a>
-        </div>
-
-        <div class="pub-card">
-          <div class="pub-venue">ACM SAC 2024 · 39th ACM/SIGAPP Symposium on Applied Computing</div>
-          <div class="pub-title">SBOM Generation Tools Under Microscope: A Focus on the npm Ecosystem</div>
-          <div class="pub-authors">Rabbi, M. F., Champa, A. I., <strong>Nachuma, C.</strong> &amp; Zibran, M. F.</div>
-          <a class="pub-link" href="https://doi.org/10.1145/3605098.3635927" target="_blank" rel="noopener">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            doi.org/10.1145/3605098.3635927
-          </a>
-        </div>
-
-        <div class="pub-card">
-          <div class="pub-venue">ACM CompEd 2025 · ACM Global Computing Education Conference</div>
-          <div class="pub-title">Future Ready, Globally Relevant: Aligning Africa's Tertiary CS Education with Global Standards</div>
-          <div class="pub-authors">Jonathan, M., Oudshoorn, M., Binamungu, L. P., Bainomugisha, E., <strong>Nachuma, C.</strong>, et al.</div>
-          <a class="pub-link" href="https://doi.org/10.1145/3736251.3749527" target="_blank" rel="noopener">
-            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            doi.org/10.1145/3736251.3749527
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <div class="skill-cat">Languages</div>
-          <div class="skill-tags">
-            <span class="tag">Python</span><span class="tag">Java</span>
-            <span class="tag">C#</span><span class="tag">JavaScript</span><span class="tag">SQL</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-cat">Systems &amp; DevOps</div>
-          <div class="skill-tags">
-            <span class="tag">Git</span><span class="tag">Docker</span>
-            <span class="tag">GitHub Actions (CI/CD)</span><span class="tag">Linux</span>
-            <span class="tag">JGit</span><span class="tag">Eclipse JDT</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-cat">Data &amp; Databases</div>
-          <div class="skill-tags">
-            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
-            <span class="tag">Oracle</span><span class="tag">Neo4j (Cypher/graph queries)</span>
-            <span class="tag">DuckDB</span><span class="tag">Parquet</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-cat">LLM &amp; AI Integration</div>
-          <div class="skill-tags">
-            <span class="tag">Anthropic Claude</span><span class="tag">OpenAI</span>
-            <span class="tag">Ollama</span><span class="tag">Prompt/Context Engineering</span>
-            <span class="tag">Graph-Grounded Retrieval</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-cat">Automation &amp; Data Pipelines</div>
-          <div class="skill-tags">
-            <span class="tag">REST API Integration</span><span class="tag">BeautifulSoup</span>
-            <span class="tag">ETL Scripting</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-cat">Research &amp; Statistical Methods</div>
-          <div class="skill-tags">
-            <span class="tag">Logistic Regression (clustered SEs)</span><span class="tag">Wilson Score CIs</span>
-            <span class="tag">Systematic Mapping</span><span class="tag">Qualitative Coding</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-cat">Cybersecurity</div>
-          <div class="skill-tags">
-            <span class="tag">Supply Chain Risk</span><span class="tag">Threat Intelligence</span>
-            <span class="tag">SBOM Evaluation</span><span class="tag">CVE/OSV Analysis</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Awards -->
-  <section id="awards">
-    <div class="container">
-      <h2 class="section-title">Awards &amp; Recognition</h2>
-      <div class="awards-grid">
-
-        <div class="award-card">
-          <div class="award-icon">🏆</div>
-          <div class="award-title">Top Graduate Oral Presentation</div>
-          <div class="award-event">ISU Research &amp; Creative Works Symposium, 2026</div>
-        </div>
-        <div class="award-card">
-          <div class="award-icon">🥇</div>
-          <div class="award-title">Top Graduate Poster Award</div>
-          <div class="award-event">ISU Research &amp; Creative Works Symposium, 2026</div>
-        </div>
-        <div class="award-card">
-          <div class="award-icon">🥇</div>
-          <div class="award-title">Best Poster Award</div>
-          <div class="award-event">4th Annual Intermountain ITC Conference, 2024</div>
-        </div>
-        <div class="award-card">
-          <div class="award-icon">🏆</div>
-          <div class="award-title">Best Oral Presentation</div>
-          <div class="award-event">ISU Research &amp; Creative Works Symposium, 2024</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Grants -->
-  <section id="grants">
-    <div class="container">
-      <h2 class="section-title">Grants &amp; Travel Awards</h2>
-      <div class="awards-grid">
-
-        <div class="award-card">
-          <div class="award-icon">✈️</div>
-          <div class="award-title">Dean&rsquo;s Excellence Fund Awards (&times;2)</div>
-          <div class="award-event">Idaho State University &middot; $1,376 total &middot; 2025&ndash;2026</div>
-        </div>
-        <div class="award-card">
-          <div class="award-icon">✈️</div>
-          <div class="award-title">Graduate School Travel Grants (&times;3)</div>
-          <div class="award-event">Idaho State University &middot; $2,458 total &middot; 2025&ndash;2026</div>
-        </div>
-        <div class="award-card">
-          <div class="award-icon">✈️</div>
-          <div class="award-title">NSF Student Travel Grant</div>
-          <div class="award-event">ACM CompEd 2025 &middot; $1,000</div>
-        </div>
-        <div class="award-card">
-          <div class="award-icon">✈️</div>
-          <div class="award-title">ICSE 2025 SMeW Travel Award</div>
-          <div class="award-event">Student Mentoring Workshop &middot; $1,300</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Leadership -->
-  <section id="leadership">
-    <div class="container">
-      <h2 class="section-title">Leadership &amp; Volunteering</h2>
-      <div class="lead-list">
-
-        <div class="lead-item">
-          <div class="lead-dot"></div>
-          <div>
-            <div class="lead-role">Junior Program Committee Member — MSR 2027 &nbsp;·&nbsp; 2026 – 2027</div>
-            <div class="lead-desc">Selected for the Junior PC of the 24th International Conference on Mining Software Repositories (MSR 2027, co-located with ICSE 2027, Dublin); participating in peer review for the conference.</div>
-          </div>
-        </div>
-        <div class="lead-item">
-          <div class="lead-dot"></div>
-          <div>
-            <div class="lead-role">Program Committee Member — MSR 2027 Mining Challenge &nbsp;·&nbsp; 2026 – 2027</div>
-            <div class="lead-desc">Reviewing submissions for the Mining Challenge at the 24th International Conference on Mining Software Repositories (MSR 2027, co-located with ICSE 2027, Dublin).</div>
-          </div>
-        </div>
-        <div class="lead-item">
-          <div class="lead-dot"></div>
-          <div>
-            <div class="lead-role">Student Volunteer — ASE 2026, Munich, Germany &nbsp;·&nbsp; Oct 2026</div>
-            <div class="lead-desc">Helped run the IEEE/ACM International Conference on Automated Software Engineering as part of the student volunteer team (registration desk, session support, posters).</div>
-          </div>
-        </div>
-        <div class="lead-item">
-          <div class="lead-dot"></div>
-          <div>
-            <div class="lead-role">Team Lead — TechEquity AI Summit, Plug and Play Tech Center, Sunnyvale, CA &nbsp;·&nbsp; Nov 2025</div>
-            <div class="lead-desc">Led 50+ volunteers supporting 2,000+ attendees; coordinated exhibitor and executive stakeholder engagement.</div>
-          </div>
-        </div>
-        <div class="lead-item">
-          <div class="lead-dot"></div>
-          <div>
-            <div class="lead-role">CS Mentor — Idaho State University &nbsp;·&nbsp; 2023 – Present</div>
-            <div class="lead-desc">Provide mentorship in programming fundamentals, career development, and technical interview preparation.</div>
-          </div>
-        </div>
-        <div class="lead-item">
-          <div class="lead-dot"></div>
-          <div>
-            <div class="lead-role">President — University of Zambia Computer Society (UNZACS) &nbsp;·&nbsp; 2010</div>
-            <div class="lead-desc">Organized coding bootcamps and workshops, increasing student participation in computing initiatives.</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="margin-top:1.5rem;">
-        <div style="font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem;">Certifications</div>
-        <div style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem 1.4rem;font-size:.88rem;color:var(--gray-700);display:flex;align-items:center;gap:.6rem;">
-          🎓 IBM / Coursera: Python for Data Science, AI &amp; Development (2026)
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p>Open to software engineering roles. Ph.D. expected Spring 2028.</p>
+        <div class="contact-links">
+          <a class="eml" href="#" data-u="costainnachuma" data-d="isu.edu">costainnachuma [at] isu.edu</a>
+          <a href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/costain" target="_blank" rel="noopener">GitHub</a>
+          <a href="CostainNachuma_SWE_Resume.pdf">Resume</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- CTA / Contact -->
-  <section id="contact">
-    <div class="container">
-      <h2>Let's Connect</h2>
-      <p>
-        Whether you're a collaborator, fellow researcher, or just want to connect — feel free to reach out.
-      </p>
-      <div class="cta-actions">
-        <a class="btn btn-white eml" href="#" data-u="costainnachuma" data-d="isu.edu">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          costainnachuma [at] isu.edu
-        </a>
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">
-          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          Connect on LinkedIn
-        </a>
-        <a class="btn btn-outline" href="CostainNachuma_SWE_Resume.pdf" target="_blank">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Resume
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <p>
-      Costain Nachuma &nbsp;·&nbsp;
-      <a class="eml" href="#" data-u="costainnachuma" data-d="isu.edu">costainnachuma [at] isu.edu</a> &nbsp;·&nbsp;
-      <a href="https://www.linkedin.com/in/costaincodes/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
-      <a href="https://scholar.google.com/citations?user=faaZK6IAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &nbsp;·&nbsp;
-      <a href="news.html">News &amp; Gallery</a>
-    </p>
-    <p style="margin-top:.4rem;font-size:.73rem;color:#475569;">Pocatello, ID</p>
+    <div class="wrap">
+      Costain Nachuma · Pocatello, ID ·
+      <a class="eml" href="#" data-u="costainnachuma" data-d="isu.edu">costainnachuma [at] isu.edu</a> ·
+      <a href="news.html">News</a>
+    </div>
   </footer>
 
   <script>
-    document.querySelectorAll('a.eml').forEach(function(a){var e=a.dataset.u+'@'+a.dataset.d;a.href='mailto:'+e;a.childNodes.forEach(function(n){if(n.nodeType===3&&n.textContent.indexOf('[at]')!==-1)n.textContent=n.textContent.replace(/\[at\]/,'@')})});
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    document.querySelectorAll("a.eml").forEach(function (a) {
+      var e = a.dataset.u + "@" + a.dataset.d;
+      a.href = "mailto:" + e;
+      a.childNodes.forEach(function (n) {
+        if (n.nodeType === 3 && n.textContent.indexOf("[at]") !== -1) {
+          n.textContent = n.textContent.replace(/\[at\]/, "@");
+        }
+      });
+    });
 
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     function updateActive() {
-      const scrollY = window.scrollY;
-      const bottomReached = (window.innerHeight + scrollY) >= document.documentElement.scrollHeight - 2;
-      let current = '';
-
-      if (bottomReached) {
-        current = sections[sections.length - 1].id;
-      } else {
-        sections.forEach(s => {
-          if (scrollY >= s.offsetTop - 120) current = s.id;
-        });
-      }
-
-      navLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      var y = window.scrollY;
+      var current = "";
+      sections.forEach(function (s) {
+        if (y >= s.offsetTop - 80) current = s.id;
+      });
+      navLinks.forEach(function (a) {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
       });
     }
-
-    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener("scroll", updateActive, { passive: true });
     updateActive();
   </script>
 </body>
